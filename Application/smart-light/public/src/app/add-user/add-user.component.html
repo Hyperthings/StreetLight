@@ -1,0 +1,70 @@
+<h4 class="add-user-header"><span class="add-user-text">Add New User</span></h4>
+<div class="add-user">
+	<form novalidate (ngSubmit)="onSubmit(user)" [formGroup]="user">
+		<div class="col-lg-5 col-md-5">
+	      <label>
+	        <span>Full name</span>
+	        <input class="add-user-inputs" type="text" placeholder="Your full name" formControlName="name" [(ngModel)]="name">
+	      </label>
+	      <div class="error" *ngIf="user.get('name').touched && user.get('name').hasError('required')">
+	        Name is required
+	      </div>
+	      <div class="error" *ngIf="user.get('name').touched && user.get('name').hasError('minlength')">
+	        Minimum of 2 characters
+	      </div>
+	      
+	   
+	      <div [hidden]="hidePassword">
+		      <label>
+		        <!-- <span>Password</span> -->
+		        <input class="add-user-inputs" type="password" placeholder="Password" formControlName="password" [(ngModel)]="password" >
+		      </label>
+		      <div class="error" *ngIf="user.get('password').touched && user.get('password').hasError('required')">
+		        Password is required
+		      </div>
+
+		      <label>
+		        <!-- <span>Confirm Password</span> -->
+		        <input class="add-user-inputs" type="password" placeholder="Confirm Password" formControlName="confirm" [(ngModel)]="confirm" (mouseover)="passwordMatch()" (mouseleave)="passwordMatch()">
+		      </label>
+		      <div class="error" *ngIf="user.get('confirm').touched && user.get('confirm').hasError('required')">
+		        Password is required
+		      </div>
+		      <p class="error" [hidden]="passwordAlert">Passwords must be same</p>
+	      </div>
+	    </div>
+	    <div class="col-lg-5 col-md-5">
+	      
+	    	<label>
+	        <!-- <span>Email address</span> -->
+	        <input class="add-user-inputs" type="email" placeholder="Email address" formControlName="email" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$" [(ngModel)]="email">
+	      </label>
+	      <div class="error" *ngIf="user.get('email').touched && user.get('email').hasError('required')">
+	      	Email is required
+	      </div>
+	       <div class="error" *ngIf="user.get('email').touched && user.get('email').hasError('pattern')">
+	        Email format should be <b>hyperthings@gmail.com</b>
+	      </div>
+	      <label>
+	        <!-- <span>Company Name</span> -->
+	        <input class="add-user-inputs" type="text" placeholder="Company Name" formControlName="companyName" [(ngModel)]="companyName">
+	      </label>
+	      <div class="error" *ngIf="user.get('companyName').touched && user.get('companyName').hasError('required')">
+	        Company Name is required
+	      </div>
+	       <label>
+	        <input class="add-user-inputs" type="number" placeholder="Phone Number" formControlName="phoneNumber" [(ngModel)]="phoneNumber">
+	      </label>
+	      <div class="error" *ngIf="user.get('phoneNumber').touched && user.get('phoneNumber').hasError('required')">
+	       Phone Number is required
+	      </div>
+
+	      <input class="add-user-inputs" type="text" formControlName="_id" [(ngModel)]="_id" [hidden]="true">
+
+	    </div>
+	     <div class="col-lg-4 col-md-4 add-user-button">
+	    	<button type="submit" [disabled]="user.invalid">Add User</button>
+	    	<button type="button" [routerLink]="['/user']">Cancel</button>
+	    </div>
+	    </form>
+    </div>

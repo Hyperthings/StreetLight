@@ -1,0 +1,161 @@
+.overview-container{
+	padding: 0 !important;
+
+    @include box-shadow(0px 0px 1px 0px, rgba(0, 0, 0, 0.5));
+
+    border-radius: 0 !important;
+    background: rgba(255, 255, 255, 0.6);
+    border: none;
+    height: 27%;
+    
+}
+
+.overview-widget{
+	height: 98%;
+    background:rgba(255,255,255,0.4);
+   
+    padding:5px!important;
+	border:none;
+	
+}
+.overview-widget-inner{
+		height: 100%;
+        @include box-shadow(1px 0px 3px 0px, rgba(0,0,0,0.5));    
+        overflow: hidden;
+        background: rgba(255,255,255,1);
+}
+
+.widget-header {
+     width: 97%;
+     text-align : center;
+     height: 25px;
+     background: #2980b9;
+     color:#f0f0f0;
+     position: absolute;
+     padding-top: 2px;
+}
+
+.widget-inner-container{
+	
+    height: 100%;
+    width: 225px;
+}
+
+.chart-inner-container{
+	
+    height: 85%;
+    width: 225px;
+    padding-top:30px;
+    padding-right:250px;
+}
+
+
+.overview-icon{
+		height: 160px;
+		width: 200px;
+		padding-top: 50px;
+		&.happiness{
+			background: url("../../images/happiness_icon2.png") 15px 30px no-repeat;
+			background-size: 120px;
+		}
+		
+}
+
+.icon-text{
+	font-size: 200%;
+    font-weight: bold;
+    padding-top: 20px;
+    padding-left: 193px;
+    color:green;
+    &.uparrow{
+    	background: url("../../images/arrow_up.png") 155px 25px no-repeat;
+		background-size: 40px;
+    }
+}
+
+
+
+.health-icon{
+        height: 160px;
+        width: 200px;
+        padding-top: 50px;
+        &.happiness{
+            background: url("../../images/health_icon.png") 40px 30px no-repeat;
+            background-size: 120px;
+        }
+        
+}
+
+.health-icon-text{
+    font-size: 200%;
+    font-weight: bold;
+    padding-top: 12px;
+    padding-left: 170px;
+    color:green;
+    
+}
+
+.scheduling-container{
+    padding: 0 !important;
+
+    @include box-shadow(0px 0px 1px 0px, rgba(0, 0, 0, 0.5));
+
+    border-radius: 0 !important;
+    background: rgba(255, 255, 255, 0.6);
+    border: none;
+    height: 81%;
+    
+}
+
+.analytics-container{
+    padding: 0 !important;
+
+    @include box-shadow(0px 0px 1px 0px, rgba(0, 0, 0, 0.5));
+
+    border-radius: 0 !important;
+    background: rgba(255, 255, 255, 0.6);
+    border: none;
+    height: 55%;
+    
+}
+
+.analytics-table-container{
+    padding: 0 !important;
+
+    @include box-shadow(0px 0px 1px 0px, rgba(0, 0, 0, 0.5));
+
+    border-radius: 0 !important;
+    background: rgba(255, 255, 255, 0.6);
+    border: none;
+    height: 26%;
+    margin-left: 1px;
+    
+}
+.overview-weather-info{
+    margin: 27px 0px 0px 0px;
+    background-color:#ebf1fa;
+}
+.overview-weather-box {
+  
+    margin: 0px 0px 10px 10px;
+    width: 48%; 
+    height: 42%;
+    margin: 2px;
+    background-color:#ebf1fa;
+    border-width: 5px;
+    border-radius: 5px;
+}
+
+.overview-weather-icon {
+    width: 45%;
+    height: 40%;
+    margin-left: 30px;
+}
+.overview-weather-text {
+    //margin-left: 20px;
+    text-align:center;
+    font-size: 32px;
+    color: #4d94ff;
+}
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.1); }

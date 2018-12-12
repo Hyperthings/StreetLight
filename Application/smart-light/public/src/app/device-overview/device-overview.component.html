@@ -1,0 +1,44 @@
+<div class="device-overview-container">
+   <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12">
+       <h4 class="device-card-header col-lg-11 col-xl-11 col-md-11 col-sm-11 col-xs-11"> Device Configuration</h4>
+          <abbr title="Add Device"><img class="device-card-icon col-lg-1 col-xl-1 col-md-1 col-sm-1 col-xs-1" src="../../images/symbol_add.png"  [routerLink]="['/add-device']"> </abbr>
+   </div>
+</div>
+
+<div class="device-table-container">
+   <div id="exportable">
+      <table class="table table-stripped">
+         <thead>
+            <tr>
+               <th class="device-table-header"> Device</th>
+               <th class="device-table-header"> Site Name</th>
+               <th class="device-table-header"> Device Name</th>
+               <th class="device-table-header"> Device ID</th>
+               <th class="device-table-header"> Device Type</th>
+               <th class="device-table-header"> Protocol</th>
+               <th class="device-table-header"> Broker IP</th>
+               <th class="device-table-header"> Broker Username</th>
+               <th class="device-table-header"> Broker Password</th>
+               <th class="device-table-header"> SIMCard Provider</th>
+               <th class="device-table-header"> SIM Number</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr class="device-table-tr" *ngFor="let deviceDetail of deviceDetails" >
+               <td class="device-table-td">{{deviceDetail.device}}</td>
+               <td class="device-table-td">{{deviceDetail.siteName}}</td>
+               <td class="device-table-td">{{deviceDetail.deviceName}}</td>
+               <td class="device-table-td">{{deviceDetail.deviceID}}</td>
+               <td class="device-table-td">{{deviceDetail.deviceType}}</td>
+               <td class="device-table-td">{{deviceDetail.protocol}}</td>
+               <td class="device-table-td">{{deviceDetail.brokerIP}}</td>
+               <td class="device-table-td">{{deviceDetail.brokerUsername}}</td>
+               <td class="device-table-td">{{deviceDetail.brokerPassword}}</td>
+               <td class="device-table-td">{{deviceDetail.simCardProvider}}</td>
+               <td class="device-table-td">{{deviceDetail.simNo}}</td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+</div>
+

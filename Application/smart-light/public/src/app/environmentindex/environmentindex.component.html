@@ -1,0 +1,153 @@
+<div class="scheduling-container row">
+  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-header">Site Name: {{variablesService.selctedSiteName}} &emsp;
+      {{selectedDeviceName == undefined ? '' : 'Device Name :'+selectedDeviceName}}
+        <img class="livedata-back-button" title="back" src="../../images/back-button.png" routerLink="/infrastructure-index">
+      </div>
+      <div class="scheduling-card-block">
+        <div class="container">
+          <div class="table-responsive">          
+            <table class="table livedata-table scheduling-livedata-table">
+              <thead>
+                <tr>
+                  <th>S.No</th>
+                  <th>Parameter Name</th>
+                  <th>Status</th>
+                  <th>Timestamp</th>
+                  <th>Value</th>
+                  <th>Unit</th>
+                </tr>
+              </thead>
+              <tbody>
+                 <tr>
+                  <td>1</td>
+                  <td>Battery Voltage</td>
+                  <td *ngIf="deviceStatusIcon"><img src="images/off_icon.png"></td>
+                  <td *ngIf="!deviceStatusIcon"><img src="images/on_icon.png"></td>
+                  <td>{{selectedDeviceInfo.ts | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+                  <td>{{selectedDeviceInfo.BV}}</td>
+                  <td>V</td>
+                </tr>
+                 <tr>
+                  <td>2</td>
+                  <td>Battery Current</td>
+                  <td *ngIf="deviceStatusIcon"><img src="images/off_icon.png"></td>
+                  <td *ngIf="!deviceStatusIcon"><img src="images/on_icon.png"></td>
+                  <td>{{selectedDeviceInfo.ts | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+                  <td>{{selectedDeviceInfo.BC}}</td>
+                  <td>A</td>
+                </tr>
+                 <tr>
+                  <td>3</td>
+                  <td>Solar Voltage</td>
+                  <td *ngIf="deviceStatusIcon"><img src="images/off_icon.png"></td>
+                  <td *ngIf="!deviceStatusIcon"><img src="images/on_icon.png"></td>
+                  <td>{{selectedDeviceInfo.ts | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+                  <td>{{selectedDeviceInfo.SV}}</td>
+                  <td>V</td>
+                </tr>
+                 <tr>
+                  <td>4</td>
+                  <td>Solar Current</td>
+                  <td *ngIf="deviceStatusIcon"><img src="images/off_icon.png"></td>
+                  <td *ngIf="!deviceStatusIcon"><img src="images/on_icon.png"></td>
+                  <td>{{selectedDeviceInfo.ts | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+                  <td>{{selectedDeviceInfo.SC}}</td>
+                  <td>A</td>
+                </tr>
+                 <tr>
+                  <td>5</td>
+                  <td>LED Indensity</td>
+                  <td *ngIf="deviceStatusIcon"><img src="images/off_icon.png"></td>
+                  <td *ngIf="!deviceStatusIcon"><img src="images/on_icon.png"></td>
+                  <td>{{selectedDeviceInfo.ts | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+                  <td>{{selectedDeviceInfo.ledIndensity}}</td>
+                  <td>%</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>Solar Charging Status</td>
+                  <td *ngIf="deviceStatusIcon"><img src="images/off_icon.png"></td>
+                  <td *ngIf="!deviceStatusIcon"><img src="../../images/{{selectedDeviceInfo.SCStatus == 1 ? 'on_icon' : 'off_icon'}}.png"></td>
+                  <td>{{selectedDeviceInfo.ts | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+                  <td>{{selectedDeviceInfo.SCStatus == 1 ? 'ON' : 'OFF'}}</td>
+                  <td>-</td>
+                </tr>
+                 <tr>
+                  <td>7</td>
+                  <td>Light Status</td>
+                  <td *ngIf="deviceStatusIcon"><img src="images/off_icon.png"></td>
+                  <td *ngIf="!deviceStatusIcon"><img src="../../images/{{selectedDeviceInfo.lightStatus == 1 ? 'on_icon' : 'off_icon'}}.png"></td>
+                  <td>{{selectedDeviceInfo.ts | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+                  <td>{{selectedDeviceInfo.lightStatus == 1 ? 'ON' : 'OFF'}}</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>Tamper</td>
+                  <td *ngIf="deviceStatusIcon"><img src="images/off_icon.png"></td>
+                  <td *ngIf="!deviceStatusIcon"><img src="../../images/{{selectedDeviceInfo.Tamper == 1 ? 'on_icon' : 'off_icon'}}.png"></td>
+                  <td>{{selectedDeviceInfo.ts | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+                  <td>{{selectedDeviceInfo.Tamper == 1 ? 'ON' : 'OFF'}}</td>
+                  <td>-</td>
+                </tr>
+                 <tr>
+                  <td>9</td>
+                  <td>LED Health</td>
+                  <td *ngIf="deviceStatusIcon"><img src="images/off_icon.png"></td>
+                  <td *ngIf="!deviceStatusIcon"><img src="../../images/{{selectedDeviceInfo.ledHealth == 1 ? 'on_icon' : 'off_icon'}}.png"></td>
+                  <td>{{selectedDeviceInfo.ts | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+                  <td>{{selectedDeviceInfo.ledHealth == 1 ? 'ON' : 'OFF'}}</td>
+                  <td>-</td>
+                </tr><tr>
+                  <td>10</td>
+                  <td>RTC Health</td>
+                  <td *ngIf="deviceStatusIcon"><img src="images/off_icon.png"></td>
+                  <td *ngIf="!deviceStatusIcon"><img src="../../images/{{selectedDeviceInfo.RTCHealth == 1 ? 'on_icon' : 'off_icon'}}.png"></td>
+                  <td>{{selectedDeviceInfo.ts | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+                  <td>{{selectedDeviceInfo.RTCHealth == 1 ? 'ON' : 'OFF'}}</td>
+                  <td>-</td>
+                </tr><tr>
+                  <td>11</td>
+                  <td>Solar Health</td>
+                  <td *ngIf="deviceStatusIcon"><img src="images/off_icon.png"></td>
+                  <td *ngIf="!deviceStatusIcon"><img src="../../images/{{selectedDeviceInfo.SolarHealth == 1 ? 'on_icon' : 'off_icon'}}.png"></td>
+                  <td>{{selectedDeviceInfo.ts | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+                  <td>{{selectedDeviceInfo.SolarHealth == 1 ? 'ON' : 'OFF'}}</td>
+                  <td>-</td>
+                </tr><tr>
+                  <td>12</td>
+                  <td>Battery Health</td>
+                  <td *ngIf="deviceStatusIcon"><img src="images/off_icon.png"></td>
+                  <td *ngIf="!deviceStatusIcon"><img src="../../images/{{selectedDeviceInfo.BatteryHealth == 1 ? 'on_icon' : 'off_icon'}}.png"></td>
+                  <td>{{selectedDeviceInfo.ts | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+                  <td>{{selectedDeviceInfo.BatteryHealth == 1 ? 'ON' : 'OFF'}}</td>
+                  <td>-</td>
+                </tr><tr>
+                  <td>13</td>
+                  <td>Device Tamper</td>
+                  <td *ngIf="deviceStatusIcon"><img src="images/off_icon.png"></td>
+                  <td *ngIf="!deviceStatusIcon"><img src="../../images/{{selectedDeviceInfo.DeviceTamper == 1 ? 'on_icon' : 'off_icon'}}.png"></td>
+                  <td>{{selectedDeviceInfo.ts | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+                  <td>{{selectedDeviceInfo.DeviceTamper == 1 ? 'ON' : 'OFF'}}</td>
+                  <td>-</td>
+                </tr><tr>
+                  <td>14</td>
+                  <td>LDR Health</td>
+                  <td *ngIf="deviceStatusIcon"><img src="images/off_icon.png"></td>
+                  <td *ngIf="!deviceStatusIcon"><img src="../../images/{{selectedDeviceInfo.LDRHealth == 1 ? 'on_icon' : 'off_icon'}}.png"></td>
+                  <td>{{selectedDeviceInfo.ts | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+                  <td>{{selectedDeviceInfo.LDRHealth == 1 ? 'ON' : 'OFF'}}</td>
+                  <td>-</td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

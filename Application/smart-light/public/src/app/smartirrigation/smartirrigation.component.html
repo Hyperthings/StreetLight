@@ -1,0 +1,143 @@
+ <div class="irrigation-header">Site Name: {{selectedSiteName}} &emsp;
+      {{selectedDeviceName == undefined ? '' : 'Device Name :'+selectedDeviceName}}
+    <img class="irrigation-back-button" title="back" src="../../images/back-button.png" (click)="backToPreviousPage()">
+ </div>
+
+<div class="irrigation-carousel-container">
+    <div class="irrigation-carousel carousel-background1 col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6">
+        <div class="irrigation-carousel-text-container col-xl-9 col-lg-9 col-md-9 col-sm-9 col-xs-9">
+            <div class="irrigation-text-count">{{energyGeneration}}<span class="irrigation-text-name">KWh </span></div>
+            <b>Energy Generated</b>
+        </div>
+        <div class="irrigation-carousel-icon-container col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
+           <img   class='irrigation-carousel-icon' src="./../../images/Energy_black.png" style="padding-left: 10px">
+        </div>
+    </div>
+    <div class="irrigation-carousel carousel-background2 col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6">
+         <div class="irrigation-carousel-text-container col-xl-9 col-lg-9 col-md-9 col-sm-9 col-xs-9">
+            <div class="irrigation-text-count">{{energyConsumed}}<span class="irrigation-text-name">KWh</span></div>
+            <b>Energy Consumption</b>
+        </div>
+        <div class="irrigation-carousel-icon-container col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
+           <img   class='irrigation-carousel-icon' src="./../../images/Energy_black.png">
+        </div>
+    </div>
+    <div class="irrigation-carousel carousel-background3 col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6">
+         <div class="irrigation-carousel-text-container col-xl-9 col-lg-9 col-md-9 col-sm-9 col-xs-9">
+            <div class="irrigation-text-count">{{widgetNamesValues.thirdWidgetValue}}<span class="irrigation-text-name"></span></div>
+            <b>{{widgetNamesValues.thirdWidgetName}}</b>
+        </div>
+        <div class="irrigation-carousel-icon-container col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
+           <img   class='irrigation-carousel-icon' src="./../../images/Street_Light.png">
+        </div>
+    </div>
+    <div class="irrigation-carousel carousel-background4 col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6">
+         <div class="irrigation-carousel-text-container col-xl-9 col-lg-9 col-md-9 col-sm-9 col-xs-9">
+            <div class="irrigation-text-count">{{widgetNamesValues.fourthWidgetValue}}<span class="irrigation-text-name"></span></div>
+            <b>{{widgetNamesValues.fourthWidgetName}}</b>
+        </div>
+        <div class="irrigation-carousel-icon-container col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
+           <img   class='irrigation-carousel-icon' src="./../../images/Street_Light.png">
+        </div>
+    </div>
+    <!-- <div class="irrigation-carousel carousel-background5 col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6" routerLink="/alarm">
+         <div class="irrigation-carousel-text-container col-xl-9 col-lg-9 col-md-9 col-sm-9 col-xs-9">
+            <div class="irrigation-text-count">{{widgetNamesValues.fifthWidgetValue}}<span class="irrigation-text-name"></span></div>
+            <b>No. of Warnings</b>
+        </div>
+        <div class="irrigation-carousel-icon-container col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
+           <img   class='irrigation-carousel-icon' src="./../../images/warning_black.png">
+        </div>
+    </div> -->
+</div>
+
+<div class="irrigation-second-container">
+
+  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12"  [hidden] = "hideChart1" [class.irrigationMaximize]= "enableMaximizeClass">
+    <div class="irrigation-inner-container"  [style.height]="setInnerHeight">
+      <div class="irrigation-inner-header" [style.height]='setHeaderHeight'>
+        <img class="portolio-maximize-btn" src="../../images/maximize.png" (click)="maximizeChart1()" [hidden] = "  enableMaximizeClass">
+        <img class="portolio-maximize-btn" src="../../images/minimize.png" (click)="mninimize()" [hidden] = "!enableMaximizeClass">
+        Battery Voltage(V)
+      </div>
+      <div class="irrigation-chart-container" id="chart1">
+        <img class="irrigation-widget-loader" src="../../images/widget-loader.gif">
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12"  [hidden] = "hideChart2" [class.irrigationMaximize]= "enableMaximizeClass">
+    <div class="irrigation-inner-container" [style.height]="setInnerHeight">
+      <div class="irrigation-inner-header" [style.height]='setHeaderHeight'>
+         <img class="portolio-maximize-btn" src="../../images/maximize.png" (click)="maximizeChart2()" [hidden] = "  enableMaximizeClass">
+        <img class="portolio-maximize-btn" src="../../images/minimize.png" (click)="mninimize()" [hidden] = "!enableMaximizeClass">
+        Solar Voltage(V)
+      </div>
+      <div class="irrigation-chart-container" id="chart2">
+        <img class="irrigation-widget-loader" src="../../images/widget-loader.gif">
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+    <div class="irrigation-inner-container">
+      <div class="irrigation-inner-header">Battery Charging</div>
+      <div class="irrigation-chart-container" id="chart4">
+        <img class="irrigation-widget-loader" src="../../images/widget-loader.gif">
+      </div>
+    </div>
+  </div> -->
+
+  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" [hidden] = "enableMaximizeClass">
+    <div class="irrigation-inner-container">
+      <div class="irrigation-inner-header">Device Health</div>
+      <div class="irrigation-chart-container" id="chart4">
+        <img class="irrigation-widget-loader" src="../../images/widget-loader.gif">
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12"  [hidden] = "hideChart3" [class.irrigationMaximize]= "enableMaximizeClass">
+    <div class="irrigation-inner-container" [style.height]="setInnerHeight">
+      <div class="irrigation-map-header" [style.height]='setHeaderHeight'>
+         <img class="portolio-maximize-btn" src="../../images/maximize.png" (click)="maximizeChart3()" [hidden] = "  enableMaximizeClass">
+        <img class="portolio-maximize-btn" src="../../images/minimize.png" (click)="mninimize()" [hidden] = "!enableMaximizeClass">
+        Battery Current (A)
+      </div>
+       <div class="irrigation-chart-container" id="chart5">
+        <img class="irrigation-widget-loader" src="../../images/widget-loader.gif">
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12"  [hidden] = "hideChart4" [class.irrigationMaximize]= "enableMaximizeClass">
+    <div class="irrigation-inner-container" [style.height]="setInnerHeight">
+      <div class="irrigation-inner-header" [style.height]='setHeaderHeight'>
+       <img class="portolio-maximize-btn" src="../../images/maximize.png" (click)="maximizeChart4()" [hidden] = "  enableMaximizeClass">
+        <img class="portolio-maximize-btn" src="../../images/minimize.png" (click)="mninimize()" [hidden] = "!enableMaximizeClass">
+        Solar Current (A)
+      </div>
+       <div class="irrigation-chart-container" id="chart6">
+        <img class="irrigation-widget-loader" src="../../images/widget-loader.gif">
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+    <div class="irrigation-inner-container">
+      <div class="irrigation-map-header">Battery Discharging</div>
+       <div class="irrigation-chart-container" id="chart7">
+        <img class="irrigation-widget-loader" src="../../images/widget-loader.gif">
+      </div>
+    </div>
+  </div> -->
+
+  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" [hidden] = "enableMaximizeClass">
+    <div class="irrigation-inner-container">
+      <div class="irrigation-inner-header">{{widgetNamesValues.statusOrIndensityName}}</div>
+       <div class="irrigation-chart-container" id="chart8">
+        <img class="irrigation-widget-loader" src="../../images/widget-loader.gif">
+      </div>
+    </div>
+  </div>
+</div>

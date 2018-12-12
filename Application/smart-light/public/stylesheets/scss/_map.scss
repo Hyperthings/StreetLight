@@ -1,0 +1,139 @@
+
+#map{
+    height: 43%;
+    width: 100%;
+    
+}
+
+.map-container{
+
+    padding: 0!important;
+
+}
+
+#map-content{
+ 	color: blue;
+ 	@include rounded-corner(20,20,20,20);
+}
+
+#customOverlay{
+
+	width: 400px;
+	height: auto;
+	background:rgba(0,0,0,0.35);
+	/* color: #0d0d0d; */
+	//color:#e9ecec;
+	color: #b8f3b9fa;
+	border: 2px solid #0d0d0d;
+	@include box-shadow(0px 0px 5px 1px, rgba(0,0,0,0.3));
+
+	background: rgba(76,76,76,1);
+background: -moz-linear-gradient(45deg, rgba(76,76,76,1) 0%, rgba(89,89,89,0.92) 12%, rgba(102,102,102,0.83) 25%, rgba(71,71,71,0.73) 39%, rgba(17,17,17,0.58) 60%, rgba(43,43,43,0.47) 76%, rgba(28,28,28,0.36) 91%, rgba(19,19,19,0.3) 100%);
+background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(76,76,76,1)), color-stop(12%, rgba(89,89,89,0.92)), color-stop(25%, rgba(102,102,102,0.83)), color-stop(39%, rgba(71,71,71,0.73)), color-stop(60%, rgba(17,17,17,0.58)), color-stop(76%, rgba(43,43,43,0.47)), color-stop(91%, rgba(28,28,28,0.36)), color-stop(100%, rgba(19,19,19,0.3)));
+background: -webkit-linear-gradient(45deg, rgba(76,76,76,1) 0%, rgba(89,89,89,0.92) 12%, rgba(102,102,102,0.83) 25%, rgba(71,71,71,0.73) 39%, rgba(17,17,17,0.58) 60%, rgba(43,43,43,0.47) 76%, rgba(28,28,28,0.36) 91%, rgba(19,19,19,0.3) 100%);
+background: -o-linear-gradient(45deg, rgba(76,76,76,1) 0%, rgba(89,89,89,0.92) 12%, rgba(102,102,102,0.83) 25%, rgba(71,71,71,0.73) 39%, rgba(17,17,17,0.58) 60%, rgba(43,43,43,0.47) 76%, rgba(28,28,28,0.36) 91%, rgba(19,19,19,0.3) 100%);
+background: -ms-linear-gradient(45deg, rgba(76,76,76,1) 0%, rgba(89,89,89,0.92) 12%, rgba(102,102,102,0.83) 25%, rgba(71,71,71,0.73) 39%, rgba(17,17,17,0.58) 60%, rgba(43,43,43,0.47) 76%, rgba(28,28,28,0.36) 91%, rgba(19,19,19,0.3) 100%);
+background: linear-gradient(45deg, rgba(76,76,76,1) 0%, rgba(89,89,89,0.92) 12%, rgba(102,102,102,0.83) 25%, rgba(71,71,71,0.73) 39%, rgba(17,17,17,0.58) 60%, rgba(43,43,43,0.47) 76%, rgba(28,28,28,0.36) 91%, rgba(19,19,19,0.3) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313', GradientType=1 );
+
+	.overlay-header{
+		height: 25px;
+		font-weight: bold;
+		font-size: 115%;
+		padding-left: 15px;
+		background:rgba(71,135,245,0.75);
+		width:100%;
+		padding-top: 5px;
+	}
+	.field-name{
+		float: left;
+	}
+	.field-value{
+		float: left;
+	}
+	.close-button{
+	cursor:pointer;
+	display:block;
+	float:right;
+	height:100%;
+	width:20px;
+	padding-right: 5px;
+	}
+
+	.power-on{
+		display: block;
+		height: 25px;
+		width: 25px;
+		background: url("../../images/on-icon.png") 0 0 no-repeat;
+		background-size: 25px;
+	}
+
+	.power-off{
+		display: block;
+		height: 15px;
+		width: 15px;
+		background: url("../../images/off-icon.png") 0 0 no-repeat;
+		background-size: 15px;
+	}
+
+	#gaugeContainer{
+		height: 150px;
+		width: 200px;
+		float: right;
+		margin-top: -100px;
+		/* background: #ccc; */
+		margin-bottom: 25px;
+
+	}
+
+}
+
+
+@keyframes heartbeat
+{
+  0%
+  {
+    transform: scale( .75 );
+  }
+  20%
+  {
+    transform: scale( 1 );
+  }
+  40%
+  {
+    transform: scale( .75 );
+  }
+  60%
+  {
+    transform: scale( 1 );
+  }
+  80%
+  {
+    transform: scale( .75 );
+  }
+  100%
+  {
+    transform: scale( .75 );
+  }
+}
+
+.selected-device-icon {
+  width: 20px;
+  height: 20px;
+  animation: heartbeat 2s infinite;
+}
+
+#thisDevice {
+	color: blue;
+	cursor: pointer;
+}
+
+.device-icon {
+	cursor: pointer;
+	background: url("../../images/map_icons/20/EMS.png") 0 0 no-repeat;
+	width: 17px;
+  	height: 15px;
+  	animation: heartbeat 2s infinite;
+	display: inline-block; 
+	border-radius: 0px 2px 0px 2px;
+}

@@ -1,0 +1,265 @@
+<div style="overflow-y: auto; max-height: 600px;">
+<h5 class="add-device-header">
+	<span class="add-device-text">Configure {{ isThisGateway == true ? 'Gateway' : 'Device' }}</span>
+	<img class="livedata-back-button" title="back" src="../../images/back-button.png" routerLink="/site">
+</h5>
+
+<!-- <button class="gateway-device-button" (click)="selectTyppe()" [hidden]="!hideButtons"> {{ isThisGateway == true ? 'Add Device' : 'Add Gateway' }}</button> -->
+
+<label class="gateway-device-button"  *ngIf="!isThisGateway" [hidden]="!hideButtons" style="font-weight: normal;"> Select Your File
+    <input type="file" id="File"   size="60" (change)="fileChangeEvent($event)"  multiple="false"/>
+</label> 
+
+
+<div class="add-device" *ngIf="isThisGateway">
+	<form novalidate (ngSubmit)="onSubmit(gateway,$event)" [formGroup]="gateway">
+		<div class="col-lg-5 col-md-5">
+	      <label>
+	      	<span class="label label-primary">Gateway MAC Address</span>
+	        <input class="add-device-inputs" type="text" placeholder="MAC Address" formControlName="gatewayName" (keyup)="checkGatwayMacAvailability($event)">
+	      </label>
+	      <div class="error" *ngIf="gateway.get('gatewayName').touched && gateway.get('gatewayName').hasError('required')">
+	        MAC Address is required
+	      </div>
+	      <div class="error" *ngIf="gateway.get('gatewayName').touched && gateway.get('gatewayName').hasError('minlength')">
+	        Minimum of 2 characters
+	      </div>
+	       <div class="error" *ngIf="showGatewayMacAvailableError">
+	        Gateway MAC Address Already Exists
+	      </div>
+
+	       <label>
+	      	<span class="label label-primary">Site Name</span>
+	        <input class="add-device-inputs" type="text" placeholder="Site Name" formControlName="siteName" [attr.disabled]="hideDefaultInputs">
+	      </label>
+	      <div class="error" *ngIf="gateway.get('siteName').touched && gateway.get('siteName').hasError('required')" >
+	        Site Name is required
+	      </div>
+
+	     <!--  <label>
+	      	<span class="label label-primary">MAC Address</span>
+	        <input  class="add-device-inputs" type="text" placeholder="MAC Address" formControlName="macAddress">
+	      </label>
+	      <div class="error" *ngIf="gateway.get('macAddress').touched && gateway.get('macAddress').hasError('required')">
+	        MAC Address is required
+	      </div> -->
+	      <label>
+	      	<span class="label label-primary">Gateway Name</span>
+	        <input class="add-device-inputs" type="text" placeholder="Gateway Name" formControlName="gatewayId">
+	      </label>
+	      <div class="error" *ngIf="gateway.get('gatewayId').touched && gateway.get('gatewayId').hasError('required')">
+	        Gateway Name is required
+	      </div>
+	    </div>
+
+	    <div class="col-lg-5 col-md-5">
+	      
+
+	       <label>
+	      	<span class="label label-primary">Latitude</span>
+	        <input class="add-device-inputs" type="number" placeholder="Latitude" formControlName="latitude">
+	      </label>
+	      <div class="error" *ngIf="gateway.get('latitude').touched && gateway.get('latitude').hasError('required')">
+	        Latitude is required
+	      </div>
+
+	      <label>
+	      	<span class="label label-primary">Longitude</span>
+	       <input class="add-device-inputs" type="number" placeholder="Longitude" formControlName="longitude">
+	      </label>
+	      <div class="error" *ngIf="gateway.get('longitude').touched && gateway.get('longitude').hasError('required')">
+	        Longitude is required
+	      </div>
+	     
+	    </div>
+
+        <div class="device-invalid-alert" [@movePanel]='state' *ngIf="gateway.invalid && showInvalidAlert">
+          Please fill all the fields.
+        </div>
+
+	    <div class="col-lg-4 col-md-4 add-device-button">
+	    	<button type="submit" [disabled]="showGatewayMacAvailableError">{{addOrUpdate}} Gateway</button>
+	    	<button type="button" [routerLink]="['/site']">Cancel</button>
+	    </div>
+	      
+	    </form>
+
+	   
+    </div>
+
+
+
+    <div class="add-device" *ngIf="!isThisGateway">
+	<form novalidate (ngSubmit)="onSubmit(device,$event)" [formGroup]="device">
+		<div class="col-lg-5 col-md-5">
+			<label>
+	      	<span class="label label-primary">Device Name</span>
+	        <input  class="add-device-inputs" type="text" placeholder="Device Name" formControlName="deviceName" (keyup)="checkDeviceNameAvailability($event)">
+	      </label>
+	      <div class="error" *ngIf="device.get('deviceName').touched && device.get('deviceName').hasError('required')">
+	        Device Name is required
+	      </div>
+	      <div class="error" *ngIf="showDeviceNameAvailableError">
+	        Device Name Already Exists
+	      </div>
+
+	      <label>
+	      	<span class="label label-primary">Site Name</span>
+	        <input class="add-device-inputs" type="text" placeholder="siteName" formControlName="siteName" [attr.disabled]="hideDefaultInputs">
+	      </label>
+	      <div class="error" *ngIf="gateway.get('siteName').touched && gateway.get('siteName').hasError('required')">
+	        Site Name is required
+	      </div>
+	      
+	     <label>
+	      	<span class="label label-primary">Gateway MAC Address</span>
+	        <input class="add-device-inputs" type="text" placeholder="Gateway MAC Address" formControlName="gatewayName" [attr.disabled]="hideDefaultInputs">
+	      </label>
+	      <div class="error" *ngIf="device.get('gatewayName').touched && device.get('gatewayName').hasError('required')">
+	        MAC Address is required
+	      </div>
+
+	      <label>
+	      	<span class="label label-primary">Gateway Name</span>
+	        <input class="add-device-inputs" type="text" placeholder="Gateway MAC Address" formControlName="gatewayId" [attr.disabled]="hideDefaultInputs">
+	      </label>
+	      <div class="error" *ngIf="device.get('gatewayId').touched && device.get('gatewayId').hasError('required')">
+	        Gateway Name is required
+	      </div>
+	    </div>
+
+	    <div class="col-lg-5 col-md-5">
+	     
+	      <label>
+	      	<span class="label label-primary">Device Serial No.</span>
+	        <input class="add-device-inputs" type="text" placeholder="Device Serial No." formControlName="deviceId" (keyup)="checkdeviceIdAvailability($event)">
+	      </label>
+	      <div class="error" *ngIf="device.get('deviceId').touched && device.get('deviceId').hasError('required')">
+	        Device Serial No. is required
+	      </div>
+	      <div class="error" *ngIf="showDeviceIdAvailableError">
+	        Device Serial No. Already Exists
+	      </div>
+
+	       <label>
+	      	<span class="label label-primary">MAC Address</span>
+	        <input  class="add-device-inputs" type="text" placeholder="MAC Address" formControlName="deviceMacAddress" (keyup)="checkdeviceMacAvailability($event)">
+	      </label>
+	      <div class="error" *ngIf="device.get('deviceMacAddress').touched && device.get('deviceMacAddress').hasError('required')">
+	        MAC Address is required
+	      </div>
+	       <div class="error" *ngIf="showDeviceMACAvailableError">
+	        MAC Address Already Exists
+	      </div>
+
+	       <label>
+	      	<span class="label label-primary">Latitude</span>
+	        <input class="add-device-inputs" type="number" placeholder="Latitude" formControlName="latitude">
+	      </label>
+	      <div class="error" *ngIf="device.get('latitude').touched && device.get('latitude').hasError('required')">
+	        Latitude is required
+	      </div>
+
+	      <label>
+	      	<span class="label label-primary">Longitude</span>
+	       <input class="add-device-inputs" type="number" placeholder="Longitude" formControlName="longitude">
+	      </label>
+	      <div class="error" *ngIf="device.get('longitude').touched && device.get('longitude').hasError('required')">
+	        Longitude is required
+	      </div>
+	     
+	    </div>
+
+	    <table class="table table-hover device-table" *ngIf="devicesForAddToSite.length > 0">
+		  <thead class="device-table-header">
+		    <tr>
+		      <th scope="col">Site Name</th>
+		      <th scope="col">Gateway MAC Address</th>
+		      <th scope="col">Gateway Name</th>
+		      <th scope="col">Device Name</th>
+		      <th scope="col">Device Id</th>
+		      <th scope="col">MAC Address</th>
+		      <th scope="col">Latitude</th>
+		      <th scope="col">Longitude</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr *ngFor="let device of devicesForAddToSite">
+		      <td>{{device.siteName}}</td>
+		      <td>{{device.gatewayName}}</td>
+		      <td>{{device.gatewayId}}</td>
+		      <td>{{device.deviceName}}</td>
+		      <td>{{device.deviceId}}</td>
+		      <td>{{device.deviceMacAddress}}</td>
+		      <td>{{device.latitude}}</td>
+		      <td>{{device.longitude}}</td>
+		    </tr>
+		  </tbody>
+		</table>
+
+		 <div class="device-invalid-alert" [@movePanel]='state' *ngIf="device.invalid && showInvalidAlert">
+          Please fill all the fields.
+        </div>
+
+
+	    <div class="col-lg-8 col-md-8" style="margin-left: 10%; margin-bottom: 80px;">
+	    	<button class="add-to-site" type="button" (click)="addToSite(device._value);" [disabled]="showDeviceNameAvailableError || showDeviceIdAvailableError">{{addOrUpdate}} Device</button>
+	    	<button class="add-to-site" type="submit" [disabled]="devicesForAddToSite.length == 0">Add to Site</button>
+	    	<button class="add-to-site" type="button" [routerLink]="['/site']">Cancel</button>
+	    </div>
+	      
+	    </form>
+
+	    <!-- [disabled]="device.invalid"
+	    <div class="col-lg-4 col-md-4 add-device-button" style="margin-bottom: 80px; margin-left: 37.5%;" *ngIf="importedDevices">
+	    	<button type="submit" (click)='addImportedDevices()'>Add Device</button>
+	    	<button type="button" [routerLink]="['/site']">Cancel</button>
+	    </div> -->
+
+	   
+    </div>
+
+
+</div>
+
+<br>
+
+
+
+		   <button id="openModalButton" [hidden]="true" data-toggle="modal" data-target="#myModal">Open Modal</button>
+          <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-sm">
+              <div class="modal-content common-popup-content">
+                <!-- <div class="modal-header" style="padding: 10px; border: none;">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div> -->
+                <div class="modal-body">
+                  <p> {{popupStatusMessage}} </p>
+                </div>
+                 <div class="modal-footer common-popup-footer">
+                    <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Close</button>
+                    <!--  <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal" [routerLink]="['/site']" *ngIf="variablesService.editDevice">Close</button> -->
+                  </div>
+              </div>
+            </div>
+          </div>
+
+
+           <button id="openModalResponseButton" [hidden]="true" data-toggle="modal" data-target="#myModalResponse">Open Modal</button>
+          <div class="modal fade" id="myModalResponse" role="dialog">
+            <div class="modal-dialog modal-sm">
+              <div class="modal-content common-popup-content">
+                <!-- <div class="modal-header" style="padding: 10px; border: none;">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div> -->
+                <div class="modal-body"> 
+                  <p> CommandID : {{popupResponseMessage.CommandID}} </p>
+                  <p> Command : {{popupResponseMessage.Command}} </p>
+                  <p> Status : {{popupResponseMessage.Status}} </p>
+                </div>
+                 <div class="modal-footer common-popup-footer">
+                    <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Close</button>
+                  </div>
+              </div>
+            </div>
+          </div>

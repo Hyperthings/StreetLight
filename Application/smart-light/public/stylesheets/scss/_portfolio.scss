@@ -1,0 +1,222 @@
+.portfolio-container{
+	padding: 0 !important;
+
+    @include box-shadow(0px 0px 1px 0px, rgba(0, 0, 0, 0.5));
+
+    border-radius: 0 !important;
+    background: rgba(255, 255, 255, 0.6);
+    border: none;
+    height: 40%;
+    
+}
+
+.portfolio-infra-container{
+  padding: 0 !important;
+
+    @include box-shadow(0px 0px 1px 0px, rgba(0, 0, 0, 0.5));
+
+    border-radius: 0 !important;
+    background: rgba(255, 255, 255, 0.6);
+    border: none;
+    height: 80%; 
+    //max-height: 50%;
+    overflow-y: auto;      
+    
+}
+
+.portfolio-widget{
+	height: 98%;
+    background:rgba(255,255,255,0.4);
+   
+    padding:5px!important;
+	border:none;
+	
+}
+.portfolio-widget-inner{
+		height: 100%;
+        @include box-shadow(1px 0px 3px 0px, rgba(0,0,0,0.5));    
+        overflow: hidden;
+        background: rgba(255,255,255,1);
+}
+
+.portfolio-widget-header {
+     width: 97%;
+     text-align : center;
+     height: 25px;
+     background: #2980b9;
+     color:#f0f0f0;
+     position: absolute;
+     padding-top: 2px;
+}
+
+.portfolio-inner-container{
+    height: 90%;
+    width: 90%;
+    padding-top:30px;
+}
+
+.portfolio-search-container {
+  margin: 0px 0px 0px 0px;
+  position: relative;
+}
+
+.portfolio-search-image {
+  position: absolute;
+  width: 20px;
+  height: 20px;  
+  margin: 5px 9px;
+}
+
+.portfolio-search-text {
+   //font-family: Georgia, "Times New Roman", Times, serif;
+    background: rgba(255,255,255,.1);
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    margin: 0;
+    outline: 0;
+    //padding: 7px;
+    padding-left: 40px;
+    width: 100%;
+    box-sizing: border-box; 
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box; 
+    background-color: rgba(41, 128, 185, .4);
+    color:#8a97a0;
+    -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    display:block;
+    box-sizing: border-box
+}
+
+
+.portfolio-table {
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+    text-align: center;
+    padding: 0px 0px 0px 80px;        
+}
+
+.livedata-table {
+    width: 100%;
+    padding: 0px 0px 0px 80px;  
+    //max-height: 50%;
+    //overflow-y: auto;      
+}
+
+.portfolio-tr:after {
+    content: ' ';
+    visibility: hidden;
+    clear: both;
+}
+.portfolio-header {
+  margin-bottom: 10px;
+ // background: #2980B9;
+  background: #337AB7;
+  text-align: center;
+  font-size: 20px;
+  color: #ffffff;
+  margin: 10px 0px 0px 10px;
+}
+.portfolio-th {
+    margin-bottom: 10px;
+    margin-left: 4px;
+    text-align: center !important;
+    font-size: 14px;
+  background: rgba(51, 122, 183, .8);
+  color:white;
+}
+
+.portfolio-tbody {
+	margin-left: 15px;
+	width: 100%;
+  height: 420px;
+  overflow-y: auto;
+ background: -webkit-linear-gradient(-45deg, rgba(242,246,248,1) 0%, rgba(170,193,209,1) 19%, rgba(216,225,231,1) 32%, rgba(200,219,230,1) 44%, rgba(181,198,208,1) 65%, rgba(146,192,222,1) 83%, rgba(224,239,249,1) 100%);
+}
+
+.portfolio-thead {
+  text-align: center;
+	width: 100%;
+}
+
+.portfolio-td {
+	text-align: center;
+  //background: rgba(102, 102, 102, .6);
+  //color: #6600ff; //# 7A8CF7;
+  font-weight: 500;
+}
+        
+
+.portolio-maximize-btn {
+  width:17px;
+  height:15px;
+  float:right;
+  margin: 3px 5px 0px 0px;
+ }
+ .maximize {
+  width: 100%;
+  height: 730px;
+  padding-left:110px;
+}
+
+
+.widget-loader {
+  margin: 40px 0px 0px 90px;
+}
+
+.hiddenRow {
+    padding: 0 !important;
+}
+
+.hiddenRowDevice {
+    padding: 0 !important;
+}
+
+.portfolio-td-devices {
+  text-align: center;
+  background: rgba(102, 102, 102, .2);
+  color:white;
+}
+
+.portfolio-td-gateway {
+  text-align: center;
+  background: rgba(102, 102, 102, .4);
+  color:white;
+}
+
+
+
+i {
+    border: solid #737373;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+
+.portfolio-table-caret {
+  width: 10px;
+  height: 10px; 
+  cursor: pointer;
+}
+
+.caret-rotate-animation {
+  width: 10px;
+  height: 10px; 
+  -webkit-transform: rotate(180deg);
+  -webkit-transition: 0.70s;
+}
+
+.caret-rerotate-animation{
+  width: 10px;
+  height: 10px; 
+  -webkit-transform: rotate(0deg);
+  -webkit-transition: 0.70s;
+}

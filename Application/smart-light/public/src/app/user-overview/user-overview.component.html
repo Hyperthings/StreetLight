@@ -1,0 +1,91 @@
+<div class="user-overview-container">
+   <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12">
+       <h4 class="user-card-header col-lg-11 col-xl-11 col-md-11 col-sm-11 col-xs-11"> User Configuration</h4>
+          <abbr title="Add User"><img class="user-card-icon col-lg-1 col-xl-1 col-md-1 col-sm-1 col-xs-1" src="../../images/symbol_add.png"  [routerLink]="['/add-user']"> </abbr>
+   </div>
+</div>
+
+   <div class="user-table-container">
+      <div id="exportable">
+         <table class="table table-stripped">
+            <thead>
+               <tr>
+                  <th class="user-table-header"> Name</th>
+                  <th class="user-table-header"> Email</th>
+                  <th class="user-table-header"> Company Name</th>
+                  <th class="user-table-header"> Phone Number</th>
+                  <th class="user-table-header"> Role</th>
+                  <th class="user-table-header"> Add Role</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr class="user-table-tr" *ngFor="let usereDetail of usereDetails" >
+                  <td class="user-table-td">{{usereDetail.name}}</td>
+                  <td class="user-table-td">{{usereDetail.email}}</td>
+                  <td class="user-table-td">{{usereDetail.companyName}}</td>
+                  <td class="user-table-td">{{usereDetail.phoneNumber}}</td>
+                  <td class="user-table-td">{{usereDetail.role}}</td>
+                  <td class="user-table-td">
+                  <img class="user-user-icon" src="../../../images/user1.png"  (click)="addRole(usereDetail)"></td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
+
+
+
+   <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog modal-md">
+         <div class="modal-content">
+            <div class="modal-body remote-modal">
+               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <h3 class="user-modal-header col-xl-11 col-lg-11 col-md-11 col-sm-11 col-xs-11">Assign Role</h3>
+                  <button type="button" class="close user-modal-dismiss col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-1" data-dismiss="modal">&times;</button>
+               </div>
+               <!-- <table class="table table-striped alarm-table">
+                  <thead class="alarm-thead">
+                     <tr class="alarm-tr">
+                        <th class="alarm-th">ID</th>
+                        <th class="alarm-th">Name</th>
+                        <th class="alarm-th">Ph Number</th>
+                        <th class="alarm-th">Email</th>
+                        <th class="alarm-th">Select</th>
+                     </tr>
+                  </thead>
+                  <tbody class="alarm-tbody">
+                     <tr class="alarm-tr" *ngFor="let inchargeDetail of inchargeDetails">
+                        <td class="alarm-td">{{inchargeDetail.id}}</td>
+                        <td class="alarm-td">{{inchargeDetail.name}}</td>
+                        <td class="alarm-td">{{inchargeDetail.phNumber}}</td>
+                        <td class="alarm-td">{{inchargeDetail.mail}}</td>
+                        <td class="alarm-td">
+                           
+                           <input type="radio" (click)="selectedInchargeDetails = inchargeDetail">
+                        </td> 
+                     </tr>
+                  </tbody>
+               </table> -->
+
+               <table class="table table-striped user-table">
+                  <thead class="user-thead">
+                     <tr class="user-tr">
+                        <th class="user-th">Role</th>
+                        <th class="user-th">Select</th>
+                     </tr>
+                  </thead>
+                  <tbody class="user-tbody">
+                     <tr class="user-tr" *ngFor="let role of roles">
+                        <td class="user-td">{{role}}</td>
+                        <td class="user-td">
+                           <input type="radio" (click)="selectedRole(role)">
+                        </td> 
+                     </tr>
+                  </tbody>
+               </table>
+               <button type="button" class="btn btn-primary user-modal-btn" (click)="saveAssignedRole()" data-dismiss="modal">Submit</button>
+               <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+            </div>
+         </div>
+      </div>
+   </div>

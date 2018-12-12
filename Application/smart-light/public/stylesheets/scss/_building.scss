@@ -1,0 +1,39 @@
+.notification-item{
+	border-bottom: 1px solid #ccc;
+	height: 58px;
+
+	.icon{
+		height: 40px;
+		width: 40px;
+		padding-top: 5px;
+		margin: 6px 5px 0px 0px;
+		&.danger{
+		background: url("../../images/danger.png") 0 0 no-repeat;
+		background-size: 42.5px;
+		}
+
+		&.info{
+		background: url("../../images/info.png") 0 0 no-repeat;
+		background-size: 40px;
+		}
+
+		&.warning{
+		background: url("../../images/warning.png") 0 0 no-repeat;
+		background-size: 40px;
+		}
+
+	}
+
+	.text{
+		padding-top: 5px;
+		font-size: 80%;
+		
+	}
+
+	.label{
+		font-size: 90%;
+   		padding-top: 5px;
+    	padding-left: 0!important;
+
+	}
+}

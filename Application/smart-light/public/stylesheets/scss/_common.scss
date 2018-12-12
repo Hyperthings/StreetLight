@@ -1,0 +1,20 @@
+.common-popup-content {
+	background: -webkit-linear-gradient(-45deg, rgba(255,255,255,1) 0%,rgba(225,225,225,1) 13%,rgba(241,241,241,1) 22%,rgba(225,225,225,1) 32%,rgba(241,241,241,1) 43%,rgba(201,201,201,1) 60%,rgba(241,241,241,1) 72%,rgba(204,204,204,1) 85%,rgba(246,246,246,1) 100%);
+    color: #982cdc;
+    font-weight: 600;
+     border: none;
+}
+
+.common-popup-footer {
+    border: none !important;
+    padding-top: 0;
+}
+
+.common-table-container {
+	padding: 20px;
+	max-width: 100%;
+}
+
+.common-table-header {
+	background: rgba(106, 176, 222, 0.52);
+}

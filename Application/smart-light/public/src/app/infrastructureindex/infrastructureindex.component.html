@@ -1,0 +1,126 @@
+<div class="portfolio-infra-container row">
+    <div class="portfolio-header">Live Data</div>
+    <table class="table table-striped livedata-table" id="mytable">
+        <thead class="portfolio-thead">
+            <tr class="portfolio-tr">
+                <th class="portfolio-th" style="padding-left: 30px;">Site Name
+                    <span class="dropdown"  title="Options">
+                        <span class="dropdown-toggle" data-toggle="dropdown" (click)="getSelectedColumn(1)"></span>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item"><b>Sorting</b></a>
+                                <a class="dropdown-item" id="ascending" (click)="sorting('ascending', 'siteName')"> Ascending Order   &#x2193;</a>
+                                <a class="dropdown-item" id="descending" (click)="sorting('descending', 'siteName')">Descending Order   &#x2191;</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item"><b>Search</b></a>
+                                <div class="dropdown-item portfolio-search-container">
+                                    <img class="portfolio-search-image" src="../../images/search.png">
+                                    <input class="portfolio-search-text" type="text"  placeholder="Search.." (keyup)="getSiteName($event)">
+                                </div>
+                        </div>
+                    </span> 
+                </th>
+                <th class="portfolio-th" style="padding-left: 30px;">Location
+                    <span class="dropdown"  title="Options">
+                        <span class="dropdown-toggle" data-toggle="dropdown" (click)="getSelectedColumn(2)"></span>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item"><b>Sorting</b></a>
+                            <a class="dropdown-item" id="ascending" (click)="sorting('ascending', 'address')"> Ascending Order   &#x2193;</a>
+                            <a class="dropdown-item" id="descending" (click)="sorting('descending', 'address')">Descending Order   &#x2191;</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item"><b>Search</b></a>
+                            <div class="dropdown-item portfolio-search-container">
+                                <img class="portfolio-search-image" src="../../images/search.png">
+                                <input class="portfolio-search-text" type="text"  placeholder="Search.." (keyup)="getSiteName($event)">
+                            </div>
+                        </div>
+                    </span>
+                </th>
+                <th class="portfolio-th">Device Health</th>
+                <th class="portfolio-th">LED Status</th>
+                <th class="portfolio-th">Solar Voltage (V)</th>
+                <th class="portfolio-th">Solar Current (A)</th>
+                <th class="portfolio-th">Battery Voltage (V)</th>
+                <th class="portfolio-th">Battery Current (A)</th>
+                <th class="portfolio-th">Last Communicated Time</th>
+            </tr>
+        </thead>
+        <tbody class="portfolio-tbody">
+           <ng-container *ngFor="let liveData of liveDatas let i=index">
+            <tr class="portfolio-tr">
+                <td class="portfolio-td"> {{liveData.siteName}}
+                   <!--  <a (click)="variablesService.selctedSiteName = liveData.siteName; variablesService.selctedDeviceName = undefined" [routerLink]="['/liveData']">
+                        {{liveData.siteName}}
+                    </a> -->
+                    <img src="../../images/caret.svg" class="portfolio-table-caret" data-toggle="collapse" [attr.data-target]="'.' + i" (click)="expandDevice(liveData.siteName, $event)">
+                </td>
+                <td class="portfolio-td">{{liveData.address}}</td>
+                <!-- <td class="portfolio-td"><img src="../../images/on_icon.png"></td>
+                <td class="portfolio-td"><img src="../../images/on_icon.png"></td> -->
+                <td class="portfolio-td"><img src="../../images/{{liveData.ledHealth == 1 ? 'on_icon' : 'off_icon'}}.png"></td>
+                <td class="portfolio-td"><img src="../../images/{{liveData.lightStatus == 1 ? 'on_icon' : 'off_icon'}}.png"></td>
+                <td class="portfolio-td">{{liveData.SV}}</td>
+                <td class="portfolio-td">{{liveData.SC}}</td>
+                <td class="portfolio-td">{{liveData.BV}}</td>
+                <td class="portfolio-td">{{liveData.BC}}</td>
+                <td class="portfolio-td">{{liveData.ts | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+            </tr>
+            
+            <tr *ngFor="let thisSitsDevice of thisSitsDevices let ind=index"> 
+                <ng-container *ngIf="liveData.siteName==thisSitsDevice.siteName">
+                    <td class="hiddenRow portfolio-td-devices">
+                        <a (click)="deviceLiveData(liveData.siteName, thisSitsDevice._id.deviceId, thisSitsDevice.deviceName)">
+                            <div class="collapse panel-collapse in" class={{i}} >{{thisSitsDevice.deviceName}}</div>
+                        </a>
+                    </td>
+                    <td class="hiddenRow portfolio-td-devices">
+                        <div class="collapse panel-collapse in" class={{i}}>{{thisSitsDevice.address}}</div>
+                    </td>
+                    <!-- <td class="hiddenRow portfolio-td-devices">
+                        <div class="collapse panel-collapse in" class={{i}}><img src="../../images/on_icon.png"></div>
+                    </td>
+                    <td class="hiddenRow portfolio-td-devices">
+                        <div class="collapse panel-collapse in" class={{i}}>
+                        <img src="../../images/on_icon.png"></div>
+                    </td> -->
+                     <td class="hiddenRow portfolio-td-devices">
+                        <div class="collapse panel-collapse in" class={{i}}>
+                            <img src="../../images/{{thisSitsDevice.ledHealth == 1 ? 'on_icon' : 'off_icon'}}.png">
+                        </div>
+                    </td>
+                    <td class="hiddenRow portfolio-td-devices">
+                        <div class="collapse panel-collapse in" class={{i}}>
+                            <img src="../../images/{{thisSitsDevice.lightStatus == 1 ? 'on_icon' : 'off_icon'}}.png">
+                        </div>
+                    </td>
+                    <td class="hiddenRow portfolio-td-devices">
+                        <div class="collapse panel-collapse in" class={{i}}>{{thisSitsDevice.SV}}</div>
+                    </td>
+                    <td class="hiddenRow portfolio-td-devices">
+                        <div class="collapse panel-collapse in" class={{i}}>{{thisSitsDevice.SC}}</div>
+                    </td>
+                    <td class="hiddenRow portfolio-td-devices">
+                        <div class="collapse panel-collapse in" class={{i}}>{{thisSitsDevice.BV}}</div>
+                    </td>
+                    <td class="hiddenRow portfolio-td-devices">
+                        <div class="collapse panel-collapse in" class={{i}}>{{thisSitsDevice.BC}}</div>
+                    </td>
+                    <td class="hiddenRow portfolio-td-devices">
+                        <div class="collapse panel-collapse in" class={{i}}>{{thisSitsDevice.ts | date:'dd-MM-yyyy HH:mm:ss'}}</div>
+                    </td>
+                </ng-container>
+            </tr>
+       
+       </ng-container>
+            <tr *ngIf=" !liveDatas || liveDatas.length == 0  || !showErrorMsg">
+                <td style="text-align: center;" colspan="9">No data to display....</td>
+            </tr>
+        </tbody>
+        
+    </table>
+</div>
+
+
+
+
+
+

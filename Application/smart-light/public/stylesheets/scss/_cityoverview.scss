@@ -1,0 +1,118 @@
+.weather-container, .newsfeed-container{
+@extend .bottom-card-inner-container;
+	
+}
+
+
+
+.newsfeed-container{
+	#carousel-news-feed{
+		height: 100%;
+
+		.carousel-control{
+			background: none!important;
+			color: #2980b9;
+		}
+
+		.carousel-indicators{
+			margin-top: 65px;
+
+			li{
+			
+			border: 1px solid #2980b9;
+
+				&.active{
+					background-color: #2980b9;
+				}
+			}
+		}
+	}
+}
+
+.news-item{
+	border-bottom: 1px solid #ccc;
+	height: 70px;
+	overflow: hidden;
+
+
+	.title{
+		font-weight: bold;
+		font-size: 85%;
+		color: #2980b9;
+	}
+
+	.content{
+		font-size: 60%;
+	}
+}
+
+.weather-item{
+	border-bottom: 1px solid #ccc;
+	height: 50px;
+
+	.icon{
+		height: 40px;
+		width: 40px;
+		padding-top: 5px;
+
+		&.sun{
+		background: url("../../images/sun.svg") 0 0 no-repeat;
+		background-size: 40px;
+		}
+
+		&.sun-cloud{
+		background: url("../../images/sun_cloud.svg") 0 0 no-repeat;
+		background-size: 40px;
+		}
+
+		&.rain{
+		background: url("../../images/rain.svg") 0 0 no-repeat;
+		background-size: 40px;
+		}
+
+	}
+
+	.temperature{
+		padding-top: 5px;
+		font-size: 170%;
+	}
+
+	.label{
+		font-size: 80%;
+	    padding-top: 2px;
+	    padding-left: 0!important;
+
+	}
+}
+
+.parking-overview{
+	.c3-axis-y{
+		display: none;
+	}
+}
+
+.video-container{
+	margin-left: 35px;
+   /*  height: 120%;
+    width: 225px; */
+    margin-top: -20%
+}
+
+.analytics-container {
+	width: 100%;
+	height: 30%;
+}
+
+.analytics-table-container {
+	width: 100%;
+	height: 30%;
+}
+
+.cityoverview-header {
+	background-color: #6AB0DE;
+	width: 100%;
+	margin-top: -20px;
+	font-size: 20px;
+	color: #FFFFFF;
+	text-align: center;
+}

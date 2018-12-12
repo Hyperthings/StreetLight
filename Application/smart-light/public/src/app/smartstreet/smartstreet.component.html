@@ -1,0 +1,89 @@
+
+<map-component [objects]="liveDatas" [overallSiteDevices]="overallSiteDevices" [overallOfflineDevices]="overallOfflineDevices"></map-component>
+
+<div class="bottom-container" [ngClass]="variablesService.navbarState">
+    <!-- <div class="card-header">
+        Test title
+    </div> -->
+
+    <div class="card-block row">
+        <div class="bottom-card">
+
+        <div class="weather-forecast bottom-card-inner">
+            <div class="vertical-header">7 Days Energy Generation</div>
+         <div id="chart1" class="bottom-card-inner-container">
+            </div>
+
+        </div>  
+
+        </div>
+
+        <div class="bottom-card">
+
+        <div class="weather-forecast bottom-card-inner">
+            <div class="vertical-header">7 Days Energy Consumed</div>
+            <div id="chart2" class="bottom-card-inner-container">
+            </div>
+        </div>  
+
+        </div>
+
+        <div class="bottom-card">
+
+        <div class="weather-forecast bottom-card-inner">
+            <div class="vertical-header">Street Light Status</div>
+            <div id="chart3" class="bottom-card-inner-container">
+               
+            </div>
+        </div>  
+
+        </div>
+
+        <div class="bottom-card">
+
+          <div class="weather-forecast bottom-card-inner">
+            <div class="vertical-header">Notifications</div>
+              <div class="light-inner-sheduling-container" style="overflow-y: scroll;">
+                        
+                        <div class="sheduling-light-card" *ngFor="let alarm_historie of alarm_histories">
+                            <div class="sheduling-icon-container col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <img class="sheduling-card-icon" alt="No Value" src="../../../images/info-{{alarm_historie.value}}.png">
+                            </div>
+                            <div class="sheduling-text-container col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <div class="sheduling-card-date">{{alarm_historie.ts}}</div>
+                                <div class="sheduling-card-header">{{alarm_historie.siteName}}</div>
+                                <div class="sheduling-card-desc">{{alarm_historie.description}}</div>
+                            </div>
+                        </div>
+                       
+                    </div>
+            <!-- <div class="notification_contianer bottom-card-inner-container">
+               
+                <div class="notification-item full-width main-notification-item">
+                    <div class="icon danger one-third-width"></div>
+                    <div class="site-notification">Light8 - Not Connected</div>
+                </div>
+
+                <div class="notification-item full-width main-notification-item">
+                <div class="icon info one-third-width"></div>
+                <div class="site-notification">Light12 - Not Working</div>
+               
+            </div>
+
+            <div class="notification-item full-width main-notification-item">
+                <div class="icon warning one-third-width"></div>
+                <div class="site-notification">Light17 - Device Tamper Low</div>
+               
+            </div>
+
+            </div> -->
+        </div>  
+
+
+        </div>
+
+
+
+
+    </div>
+</div>

@@ -1,0 +1,118 @@
+.reportsfilter-container{
+	padding: 20px;
+    @include box-shadow(0px 0px 1px 0px, rgba(0, 0, 0, 0.5));
+    border-radius: 0 !important;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+	width: 30%;
+	height: 65%;
+	//overflow-y: scroll;
+	margin: 2% 35%;
+	position:relative;
+	padding-top: 30px;
+}
+
+.reportsfilter-header {
+	padding-top: 10px;
+	text-align: center;
+	background: #337AB7;
+	color: #FFF;
+}
+
+.reportsfilter-label-container {
+    //display: table;
+    width: 100%;
+    border-spacing: 2px
+}
+
+.reportsfilter-labels {
+	background-color:#2c539e;
+	color: #FFF;
+	font-weight: 450;
+	//display:table-row;
+	border-radius:4px;
+	width:100%;
+	height:33px;
+	padding:5px 0;
+	text-align:center
+}
+
+.reportsfilter-hr {
+	margin: 15px 0 20px 0;
+    border: none;
+    height: 1px;
+    background-image: linear-gradient(90deg,#ddd,#555,#ddd);
+}
+
+
+.reportsfilter-dropdown-container {
+    //display: table;
+    width: 100%;
+    border-spacing: 2px
+}
+
+.reportsfilter-dropdowns {
+	//display:table-row;
+	border-radius:4px;
+	width:100%;
+	padding:8px 0;
+	text-align:center
+}
+.reportsfilter-select{
+	background-color: white;
+	//display:table-row;
+	border-radius:4px;
+	width:100%;
+	padding:8px 0;
+	text-align:center;
+	width: 100%; 
+	border: 1px solid #CCC;
+
+}
+
+.filter-button {
+	//position: fixed;
+    //bottom: 9%;
+    //left: 23%;
+    width: 100px;
+    background-color:#2c539e;
+    color: #FFF;
+	height:33px;
+	margin: 5% 0 0 60%;	
+}
+
+.reportsfilter-category-btn {
+	border: 1px solid #CCC;
+	width: 100%;
+	background-color: white;
+	text-align: left;
+}
+
+.dropdown-toggle::after {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 0.3em;
+    vertical-align: middle;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-left: 0.3em solid transparent;
+    float: right;
+    margin-top: 7px;
+}
+
+.dropicon {
+	font-family: mydaterangepicker;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+.reports-filter-loader {
+	margin: 20% 50%;
+	width: 100px;
+	height: 100px;
+}

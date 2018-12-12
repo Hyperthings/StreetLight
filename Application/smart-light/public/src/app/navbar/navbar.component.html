@@ -1,0 +1,75 @@
+ <nav class="app-nav-bar" (mouseover)="setNavbarState('nav-maximized')" (mouseout)="setNavbarState('nav-minimized')">
+
+<!-- <div class="navigation-item" [ngClass]="variablesService.navbarState"  routerLink="/home">
+	<div class="icon home"></div>
+	<div class="text">Home</div>
+</div> -->
+
+<div class="navigation-item" [ngClass]="variablesService.navbarState" routerLink='/home'>
+	<div class="icon home"></div>
+	<div class="text">Portfolio Overview</div>
+</div>
+
+<!-- <div class="navigation-item" [ngClass]="variablesService.navbarState"  routerLink="/street">
+	<div class="icon smart-street"></div>
+	<div class="text">Smart Public Space</div>
+</div> -->
+
+<!-- <div class="navigation-item" [ngClass]="variablesService.navbarState"  routerLink="/energy-index">
+	<div class="icon energy"></div>
+	<div class="text">Site Overview</div>
+</div> -->
+
+ <div class="navigation-item" [ngClass]="variablesService.navbarState"  routerLink='/scheduling'>
+	<div class="icon solar"></div>
+	<div class="text">Site Dashboard</div>
+</div>
+ <div class="navigation-item" [ngClass]="variablesService.navbarState" routerLink='/remote'>
+	<div class="icon remote_control"></div>
+	<div class="text">Remote control</div>
+</div>
+
+<!-- <div class="navigation-item" [ngClass]="variablesService.navbarState"  routerLink='/lighting-scheduling'>
+	<div class="icon scheduling"></div>
+	<div class="text">Light Scheduling</div>
+</div> -->
+<!--<div class="navigation-item" [ngClass]="variablesService.navbarState" routerLink='/lighting-remote'>
+	<div class="icon remote_control"></div>
+	<div class="text">Light RemoteControl</div>
+</div>
+
+<div class="navigation-item" [ngClass]="variablesService.navbarState" routerLink='/analytics'>
+	<div class="icon analytics"></div>
+	<div class="text">Analytics</div>
+</div>
+<div class="navigation-item" [ngClass]="variablesService.navbarState" routerLink = '/irrigation'>
+	<div class="icon smart-irrigation"></div>
+	<div class="text">Smart Irrigation</div>
+</div>-->
+
+<div class="navigation-item" [ngClass]="variablesService.navbarState" routerLink='/alarm'>
+	<div class="icon notification"></div>
+	<div class="text">Alarm Management</div>
+</div> 
+
+<div class="navigation-item" [ngClass]="variablesService.navbarState" routerLink='/infrastructure-index'>
+	<div class="icon smart-metering"></div>
+	<div class="text">Live Data</div>
+</div>
+<div class="navigation-item" [ngClass]="variablesService.navbarState" routerLink='/reports-filter'>
+	<div class="icon reports"></div>
+	<div class="text">Reports</div>
+</div>
+<div class="navigation-item" [ngClass]="variablesService.navbarState" routerLink='/site'>
+	<div class="icon site"></div>
+	<div class="text">Site Configuration</div>
+</div>
+<!-- <div class="navigation-item" [ngClass]="variablesService.navbarState" routerLink='/device'>
+	<div class="icon device"></div>
+	<div class="text">Device Configuration</div>
+</div>
+<div class="navigation-item" [ngClass]="variablesService.navbarState" routerLink='/user'>
+	<div class="icon user-nav"></div>
+	<div class="text">Role Management</div>
+</div> -->
+</nav>

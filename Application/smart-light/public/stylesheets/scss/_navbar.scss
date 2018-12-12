@@ -1,0 +1,233 @@
+.navigation-container{
+    height: $page-height;
+    padding-left: 0!important;
+
+    @include pull-left;
+
+    nav{
+
+         @include background-opacity(#ffffff, 0.4);
+         @include box-shadow(1px 0px 3px 0px , rgba(0,0,0,0.35));
+        width: 75%;
+        height: 100%;
+        margin-top: 45px;
+
+
+    }
+   transition: width 0.5s ease-out; 
+    -webkit-transition: width 0.5s ease-out;
+   &.nav-minimized{
+        @extend .col-xl-1;
+        @extend .col-lg-1;
+        @extend .col-md-1;
+        @extend .col-sm-1;
+        @extend .col-xs-1;
+
+
+        
+    }
+    
+
+    &.nav-maximized{
+         @extend .col-xl-2;
+         @extend .col-lg-2;
+         @extend .col-md-3;
+          @extend .col-sm-3;
+           @extend .col-xs-8;
+        nav{
+            width: 100%; 
+        }
+           
+    }
+}
+
+.navigation-item{
+    @extend .full-width;
+    height: 55px;
+   
+    padding-top: 5px;
+    color: $dark-bg-color;
+    transition: padding 0.5s ease-out; 
+             -webkit-transition: padding 0.5s ease-out;
+    &.nav-minimized{
+        .text{
+            width: 0px;
+            overflow: hidden;
+
+             
+        }
+
+        .icon{
+            @extend .full-width;
+            padding-right:0!important;
+              transition: margin 0.5s ease-out; 
+             -webkit-transition: margin 0.5s ease-out; 
+
+        }
+    }
+
+    &.nav-maximized{
+        padding-left: 5px;
+
+        .text{
+         /*    @extend .col-xl-10;
+            @extend .col-lg-10;
+            @extend .col-md-10;
+            @extend .col-sm-10;
+            @extend .col-xs-10; */
+            overflow: hidden;
+           
+           white-space: nowrap;
+           height: 100%;
+           padding-top: 10px;
+           padding-left: 10px;
+            transition: width 1s ease-out; 
+            -webkit-transition: width 1s ease-out;
+              transition: padding 0.5s ease-out; 
+             -webkit-transition: padding 0.5s ease-out;
+        }
+
+        .icon{
+            @extend .col-xl-2;
+            @extend .col-lg-2;
+            @extend .col-md-2;
+            @extend .col-sm-2;
+            @extend .col-xs-2;
+             padding-left: 0px;
+             padding-right: 10px;
+           /*    transition: margin 0.5s ease-out; 
+             -webkit-transition: margin 0.5s ease-out; */
+             height: 30px;
+            width: 30px; 
+            background-size: 30px!important;
+             margin-top: 10px;
+        }
+    }
+
+
+    .icon{
+        height: 40px;
+        width: 40px;
+        margin-top: 5px;
+
+        &.home{
+            background: url("../../images/home_icon.png") 0 0 no-repeat;
+            background-size: 40px;
+        }
+        
+        &.smart-building{
+            background: url("../../images/smart_building.png") 0 0 no-repeat;
+            background-size: 40px;
+        }
+
+        &.smart-street{
+            background: url("../../images/smart_street_solution.png") 0 0 no-repeat;
+            background-size: 40px;
+        }
+
+        &.waste-management{
+            background: url("../../images/smart_waste_management.png") 0 0 no-repeat;
+            background-size: 40px;
+        }
+
+        &.smart-parking{
+            background: url("../../images/smart_parking.png") 0 0 no-repeat;
+            background-size: 40px;
+        }
+
+        &.smart-trasport{
+            background: url("../../images/smart_transportation.png") 0 0 no-repeat;
+            background-size: 40px;
+        }
+
+        &.smart-irrigation{
+            background: url("../../images/smart_irrigation.png") 0 0 no-repeat;
+            background-size: 40px;
+        }
+
+        &.smart-metering{
+            background: url("../../images/smart_metering.png") 0 0 no-repeat;
+            background-size: 40px;
+        }
+
+        &.reports{
+            background: url("../../images/reports_dashboards.png") 0 0 no-repeat;
+            background-size: 40px;
+        }
+
+        &.notification{
+            background: url("../../images/notification.png") 0 0 no-repeat;
+            background-size: 40px;
+        }
+
+        &.solar{
+            background: url("../../images/dashboard.png") 0 0 no-repeat;
+            background-size: 40px;
+        }
+
+         &.energy{
+            background: url("../../images/site-overview.png") 0 0 no-repeat;
+            background-size: 40px;
+        }
+
+         &.analytics{
+            background: url("../../images/analytics.png") 0 0 no-repeat;
+            background-size: 40px;
+        }
+
+        &.remote_control{
+            background: url("../../images/remote_control.png") 0 0 no-repeat;
+            background-size: 40px;
+        }
+
+        &.scheduling{
+            background: url("../../images/scheduling.png") 0 0 no-repeat;
+            background-size: 40px;
+        }
+
+         &.site{
+            background: url("../../images/city_overview.png") 0 0 no-repeat;
+            background-size: 40px;
+        }
+
+         &.device{
+            background: url("../../images/device.png") 0 0 no-repeat;
+            background-size: 40px;
+        }
+
+        &.user-nav{
+            background: url("../../images/user-nav.png") 0 0 no-repeat;
+            background-size: 40px;
+        }
+
+    }
+
+    
+
+    &:hover{
+
+        .text{
+            padding-left: 15px;
+             transition: padding 0.5s ease-out; 
+        -webkit-transition: padding 0.5s ease-out;
+             
+        }
+        
+       /*  @include box-shadow(0px 0px 3px 0px, #6fa2b3); */
+        cursor: pointer;
+         color: #ffffff;
+   background: rgba(255,255,255,1);
+background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(41,128,185,0.67) 47%, rgba(255,255,255,0.3) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(41,128,185,0.67)), color-stop(100%, rgba(255,255,255,0.3)));
+background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(41,128,185,0.67) 47%, rgba(255,255,255,0.3) 100%);
+background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(41,128,185,0.67) 47%, rgba(255,255,255,0.3) 100%);
+background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(41,128,185,0.67) 47%, rgba(255,255,255,0.3) 100%);
+background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(41,128,185,0.67) 47%, rgba(255,255,255,0.3) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0 );
+    }
+
+
+
+
+}
+

@@ -1,0 +1,40 @@
+2018-08-21 17:16:48 - Starting C:\Program Files\nodejs\node.exe  --harmony E:\iot_solutions\smart-light\node_modules\node-windows\lib\wrapper.js --file E:\iot_solutions\smart-light\server.js --log "Smart_Light wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2018-08-21 17:16:48 - Started 7160
+2018-08-27 12:07:46 - Starting C:\Program Files\nodejs\node.exe  --harmony E:\iot_solutions\smart-light\node_modules\node-windows\lib\wrapper.js --file E:\iot_solutions\smart-light\server.js --log "Smart_Light wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2018-08-27 12:07:46 - Started 2216
+2018-09-04 16:33:43 - Stopping smart_light.exe
+2018-09-04 16:33:43 - ProcessKill 2216
+2018-09-04 16:33:44 - Shutdown exception
+Message:A system shutdown is in progress. (Exception from HRESULT: 0x8007045B)
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()
+2018-09-04 17:07:39 - Starting C:\Program Files\nodejs\node.exe  --harmony E:\iot_solutions\smart-light\node_modules\node-windows\lib\wrapper.js --file E:\iot_solutions\smart-light\server.js --log "Smart_Light wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2018-09-04 17:07:39 - Started 3020
+2018-09-18 10:54:25 - Stopping smart_light.exe
+2018-09-18 10:54:25 - ProcessKill 3020
+2018-09-18 10:54:26 - Shutdown exception
+Message:A system shutdown is in progress. (Exception from HRESULT: 0x8007045B)
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()
+2018-09-18 13:07:10 - Starting C:\Program Files\nodejs\node.exe  --harmony E:\iot_solutions\smart-light\node_modules\node-windows\lib\wrapper.js --file E:\iot_solutions\smart-light\server.js --log "Smart_Light wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2018-09-18 13:07:10 - Started 3380
+2018-09-19 15:53:44 - Stopping smart_light.exe
+2018-09-19 15:53:44 - ProcessKill 3380
+2018-09-19 16:15:56 - Starting C:\Program Files\nodejs\node.exe  --harmony E:\iot_solutions\smart-light\node_modules\node-windows\lib\wrapper.js --file E:\iot_solutions\smart-light\server.js --log "Smart_Light wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2018-09-19 16:15:57 - Started 3356
+2018-09-20 01:01:13 - Starting C:\Program Files\nodejs\node.exe  --harmony E:\iot_solutions\smart-light\node_modules\node-windows\lib\wrapper.js --file E:\iot_solutions\smart-light\server.js --log "Smart_Light wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2018-09-20 01:01:15 - Started 3224

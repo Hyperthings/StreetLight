@@ -1,0 +1,207 @@
+<!-- <div class="scheduling-container row"> -->
+<!-- <div class="scheduling-second-container waste-first-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <div class="card"> -->
+    <div class="card-header">
+      Site Configuration
+      <img class="livedata-back-button" title="back" src="../../images/back-button.png" routerLink="/remote">
+    </div>
+    <!-- <div class="scheduling-card-block waste-first-container">
+      <div class="container" style="padding: 0 !important; max-width: 100%;"> -->
+        <div class="table-responsive scheduling-table">          
+          <table class="table">
+            <thead>
+            </thead>
+            <tbody>
+              <tr class="common-table-header" style="text-align: center;">
+              <th>Parameter</th>
+              <th>First Alarm</th>
+              <th>Second Alarm</th>
+              <th>Third Alarm</th>
+              <th>PIR Time Out</th>
+              </tr>
+              <tr style="text-align: center;">
+                 <td>Time  <small>(HH:MM)</small></td>
+                 <td>
+                  <select class="selectpicker show-tick" [(ngModel)]='firstAlarmTime'>
+                    <option *ngFor="let minute of minutes; let i=index">{{i}}</option>
+                  </select>
+                  <select class="selectpicker show-tick" [(ngModel)]='firstAlarmMinute'>
+                    <option *ngFor="let second of seconds; let i = index">{{i}}</option>
+                  </select>
+                </td>
+                <td>
+                 <select class="selectpicker show-tick" [(ngModel)]='secondAlarmTime'>
+                    <option *ngFor="let minute of minutes; let i=index">{{i}}</option>
+                  </select>
+                  <select class="selectpicker show-tick" [(ngModel)]='secondAlarmMinute'>
+                    <option *ngFor="let second of seconds; let i = index">{{i}}</option>
+                  </select>
+                </td>
+                 <td>
+                  <select class="selectpicker show-tick" [(ngModel)]='thirdAlarmTime'>
+                    <option *ngFor="let minute of minutes; let i=index">{{i}}</option>
+                  </select>
+                  <select class="selectpicker show-tick" [(ngModel)]='thirdAlarmMinute'>
+                    <option *ngFor="let second of seconds; let i = index">{{i}}</option>
+                  </select>
+                </td>
+                <td><input  style="text-align: center;" type="number" value='30' max="100" [(ngModel)]='pirTimeout' required (keyup)="preventInput($event)"/>
+                  <div *ngIf="pirTimeOutLError" style="color: red; z-index: 200; font-size: 11px;"><p>PIR Timeout should be in 30 to 100</p></div>
+                </td>
+              </tr>
+              <tr style="text-align: center;">
+                <td>Intensity (%)</td>
+                <td>
+                  <div class="range-slider threshold-label-value">
+                      <input class="range-slider-range" type="range" #range2 value="50" step="10" min="0" max="100" title="minimum value" [(ngModel)]='firstAlarmIndensity'>
+                  </div>
+                  <span class="range-slider-value" >{{firstAlarmIndensity}}</span>
+                </td>
+                <td>
+                  <div class="range-slider threshold-label-value">
+                    <input class="range-slider-range" type="range" #range3 value="50" step="10" min="0" max="100" title="minimum value" [(ngModel)]='secondAlarmIndensity'>
+                  </div>
+                  <span class="range-slider-value" >{{secondAlarmIndensity}}</span>
+                </td>
+                <td>
+                  <div class="range-slider threshold-label-value">
+                    <input class="range-slider-range" type="range" #range4 value="50" step="10" min="0" max="100" title="minimum value" [(ngModel)]='thirdAlarmIndensity'>
+                  </div>
+                  <span class="range-slider-value" >{{thirdAlarmIndensity}}</span>
+                </td>
+                <td><input style="text-align: center;" type="text" value="Reserved"></td> 
+              </tr>
+            </tbody>
+          </table>
+          <button class="btn btn-primary btn-sm waste-configure-btn" (click)="updateConfiguredLight()" [disabled]="thisSiteGateway">Submit</button>
+        </div>
+       <br>
+
+<!-- <div class="scheduling-second-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+  <div class="card"> -->
+    <div class="card-header"> Light Control</div>
+    <!-- <div class="scheduling-card-block"  style="overflow-y: scroll; height: 340px;" >
+      <div class="container"> -->
+        <div class="scheduling-table" style="overflow-y: scroll; height: 318px;" >
+          <table class="table" id="lightControlTable">
+            <thead>
+              <tr class="common-table-header">
+                <th>Gateway Name
+                  <span class="dropdown"  title="Options">
+                    <span class="dropdown-toggle" data-toggle="dropdown" (click)="getSelectedColumn(1)"></span>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item"><b>Sorting</b></a>
+                        <a class="dropdown-item" id="ascending" (click)="sorting('ascending', 'gatewayId')"> Ascending Order   &#x2193;</a>
+                        <a class="dropdown-item" id="descending" (click)="sorting('descending', 'gatewayId')">Descending Order   &#x2191;</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item"><b>Search</b></a>
+                        <div class="dropdown-item portfolio-search-container">
+                            <img class="portfolio-search-image" src="../../images/search.png">
+                            <input class="portfolio-search-text" type="text"  placeholder="Search.." (keyup)="getSiteName($event)">
+                        </div>
+                    </div>
+                </span>
+                </th>
+                <th>Serial No.
+                   <span class="dropdown"  title="Options">
+                    <span class="dropdown-toggle" data-toggle="dropdown" (click)="getSelectedColumn(1)"></span>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item"><b>Sorting</b></a>
+                        <a class="dropdown-item" id="ascending" (click)="sorting('ascending', 'SN')"> Ascending Order   &#x2193;</a>
+                        <a class="dropdown-item" id="descending" (click)="sorting('descending', 'SN')">Descending Order   &#x2191;</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item"><b>Search</b></a>
+                        <div class="dropdown-item portfolio-search-container">
+                            <img class="portfolio-search-image" src="../../images/search.png">
+                            <input class="portfolio-search-text" type="text"  placeholder="Search.." (keyup)="getSiteName($event)">
+                        </div>
+                    </div>
+                </span>
+                </th>
+                <th>Device Name
+                  <span class="dropdown"  title="Options">
+                    <span class="dropdown-toggle" data-toggle="dropdown" (click)="getSelectedColumn(1)"></span>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item"><b>Sorting</b></a>
+                        <a class="dropdown-item" id="ascending" (click)="sorting('ascending', 'deviceName')"> Ascending Order   &#x2193;</a>
+                        <a class="dropdown-item" id="descending" (click)="sorting('descending', 'deviceName')">Descending Order   &#x2191;</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item"><b>Search</b></a>
+                        <div class="dropdown-item portfolio-search-container">
+                            <img class="portfolio-search-image" src="../../images/search.png">
+                            <input class="portfolio-search-text" type="text"  placeholder="Search.." (keyup)="getSiteName($event)">
+                        </div>
+                    </div>
+                </span>
+                </th>
+                <th>Last Communicated Time</th>
+                <th style="text-align: left; width: 200px; padding-left: 25px;">LED Status</th>
+                <th style="text-align: left; width: 200px; padding-left: 25px;">Register</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="text-align: center;" *ngFor="let lightControlDevice of lightControlDevices let i=index">
+                <td>{{lightControlDevice.gatewayId}}</td> 
+                <td>{{lightControlDevice._id.deviceId}}</td> 
+                <td>{{lightControlDevice.deviceName}}</td>
+                <td>{{lightControlDevice.ts | date:'dd-MM-yyyy HH:mm:ss'}}</td>  
+                <td style=" width: 200px">
+                  <label class="switch" >
+                    <input class="switch-input switch-input{{i}}" type="checkbox" (click)="changeStatusCommand(lightControlDevice, $event, i)" [checked]="lightControlDevice.lightStatus == 1 ? true : false" />
+                    <span class="switch-label" data-on="On" data-off="Off"></span> 
+                    <span class="switch-handle"></span> 
+                  </label>
+                </td> 
+                <td style=" width: 200px">
+                  <label class="switch" >
+                    <input class="switch-input disabled" type="checkbox" (click)="registerCommand(lightControlDevice, $event, i)" [checked]="lightControlDevice.registerStatus" [attr.disabled]="lightControlDevice.registerStatus ? '' : null"/>
+                    <span class="switch-label btn" data-on="Live" data-off="Register" id='switch-label-id{{i}}'></span> 
+                    <span class="switch-handle"></span> 
+                  </label>
+                </td>           
+              </tr>
+            </tbody>
+          </table>
+        </div>
+     <!--  </div>
+    </div>
+  </div>
+</div> -->
+
+
+ <button id="openModalButton" [hidden]="true" data-toggle="modal" data-target="#myModal">Open Modal</button>
+          <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-sm">
+              <div class="modal-content common-popup-content">
+                <!-- <div class="modal-header" style="padding: 10px; border: none;">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div> -->
+                <div class="modal-body">
+                  <p> {{popupStatusMessage}} </p>
+                </div>
+                 <div class="modal-footer common-popup-footer">
+                    <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Close</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+
+ <button id="openModalResponseButton" [hidden]="true" data-toggle="modal" data-target="#myModalResponse">Open Modal</button>
+          <div class="modal fade" id="myModalResponse" role="dialog">
+            <div class="modal-dialog modal-sm">
+              <div class="modal-content common-popup-content">
+                <!-- <div class="modal-header" style="padding: 10px; border: none;">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div> -->
+                <div class="modal-body">
+                  <p> CommandID : {{popupResponseMessage.CommandID}} </p>
+                  <p> Command : {{popupResponseMessage.Command}} </p>
+                  <p> Status : {{popupResponseMessage.Status}} </p>
+                </div>
+                 <div class="modal-footer common-popup-footer">
+                    <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Close</button>
+                  </div>
+              </div>
+            </div>
+          </div>

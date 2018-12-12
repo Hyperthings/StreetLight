@@ -1,0 +1,179 @@
+<div class="reports-first-container">
+   <div class="reports-dropdown-container col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2">
+      <!-- <div class="dropdown">
+         <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">{{reportTitle}}
+         </button>
+         <ul class="dropdown-menu">
+            <li (click)="dynamicReports('reportsDtata1')">Monthly Report</li>
+            <li (click)="dynamicReports('reportsDtata2')">Yearly Report</li>
+         </ul>
+      </div> -->
+            <a data-toggle="tooltip" title="Export">
+         <img  class="reports-export-icon" src="../../images/exel_icon.png" (click)="exportData($event)"> </a> 
+   </div>
+   <div class="reports-header-container col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8">
+   	<h4 class="reports-header-text">Reports</h4>		
+   </div>
+   <div class="reports-btn-container col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2">
+      
+
+       <img class="livedata-back-button" title="back" src="../../images/back-button.png" routerLink="/reports-filter">
+   </div>
+</div>
+<div class="reports-table-container">
+   <div id="exportable">
+     
+         <div class="reports-info-div">
+            <table class="table borderless">
+              <tbody>
+               
+                <tr>
+                  <th class="reports-header-width" style="text-align: left;">Site Name: </th>
+                  <td class="reports-header-width">{{varService.selctedSiteNameForReports}}</td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td><!-- 
+                  <td class="reports-extra-width"></td> -->
+                  <td rowspan="3">
+                     <div class="reports-image-div">
+                        <img class="reports-image" src="http://iot.hyperthings.in:6017/images/rsz_evolute-logo-clear.png">
+                     </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="reports-header-width" style="text-align: left;">Generated Time: </th>
+                  <td class="reports-date-width">{{currentTime}}</td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td><!-- 
+                  <td class="reports-extra-width"></td> -->
+                </tr>
+                <tr>
+                  <th class="reports-header-width" style="text-align: left;">User Name: </th>
+                  <td class="reports-header-width">{{currentUser}}</td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td>
+                  <td class="reports-extra-width"></td><!-- 
+                  <td class="reports-extra-width"></td> -->
+                </tr>
+              </tbody>
+            </table>
+         </div>
+
+      
+      <table class="table table-stripped table-bordered" style="overflow-x: auto; max-width: 100%;">
+         <thead>
+            <tr style="display: block;"><!-- 
+               <th class="reports-table-header" style="width:150px">Date</th> -->
+               <th class="reports-table-header" style="width: 100px;" nowrap>Site Name</th>
+               <th class="reports-table-header" style="width: 100px;" nowrap>Device Name</th>
+               <th class="reports-table-header" style="width: 100px;" nowrap>Device ID</th>
+               <th class="reports-table-header" style="width: 150px;" nowrap>Date & Time</th>
+               <th class="reports-table-header" style="width: 100px;" nowrap>Energy Generation (kWh)</th>
+               <th class="reports-table-header" style="width: 100px;" nowrap>Energy Consumption (kWh)</th>
+               <th class="reports-table-header" style="width: 100px;" nowrap>Solar Voltage (V)</th>
+               <th class="reports-table-header" style="width: 100px;" nowrap>Solar Current (A)</th>
+               <th class="reports-table-header" style="width: 100px;" nowrap>Battery Voltage (V)</th>
+               <th class="reports-table-header" style="width: 100px;" nowrap>Battery Current (A)</th>
+               <th class="reports-table-header" style="width: 100px;" nowrap>Intensity</th>
+               <th class="reports-table-header" style="width: 100px;" nowrap>Solar Charging Status</th>
+               <th class="reports-table-header" style="width: 100px;" nowrap>LED Status</th>
+               <th class="reports-table-header" style="width: 100px;" nowrap>Tamper</th>
+               <th class="reports-table-header" style="width: 100px;" nowrap>LED Health</th>
+               <th class="reports-table-header" style="width: 100px;" nowrap>RTC Health</th>
+               <th class="reports-table-header" style="width: 100px;" nowrap>Solar Health</th>
+               <th class="reports-table-header" style="width: 100px;" nowrap>Battery Health</th>
+               <th class="reports-table-header" style="width: 100px;" nowrap>Device Tamper</th>
+               <th class="reports-table-header" style="width: 100px;" nowrap>LDR Health</th>
+            </tr>
+         </thead>
+         <tbody class="reports-table-body" style="display: block;">
+            <div style="max-height: 200px; overflow-y: scroll;display: block;">
+            <tr  class="reports-table-tr" *ngFor="let dailyData of dailyDatas; let i = index; trackBy: trackByIndex" style="display: block;"><!-- 
+               <td class="reports-table-td">{{dailyData.date}}</td> -->
+               <td class="reports-table-td" style="width: 100px;" nowrap>{{dailyData.siteName}}</td>
+               <td class="reports-table-td" style="width: 100px;" nowrap>{{dailyData.deviceName}}</td>
+               <td class="reports-table-td" style="width: 100px;" nowrap>{{dailyData._id.deviceId}}</td>
+               <td class="reports-table-td" style="width: 150px;" nowrap>{{dailyData.ts | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+               <td class="reports-table-td" style="width: 100px;" nowrap>0</td>
+               <td class="reports-table-td" style="width: 100px;" nowrap>0</td>
+               <td class="reports-table-td" style="width: 100px;" nowrap>{{dailyData.SV}}</td>
+               <td class="reports-table-td" style="width: 100px;" nowrap>{{dailyData.SC}}</td>
+               <td class="reports-table-td" style="width: 100px;" nowrap>{{dailyData.BV}}</td>
+               <td class="reports-table-td" style="width: 100px;" nowrap>{{dailyData.BC}}</td>
+               <td class="reports-table-td" style="width: 100px;" nowrap>{{dailyData.ledIndensity}}</td>
+               <td class="reports-table-td" style="width: 100px;" nowrap>{{dailyData.SCStatus == 1 ? 'On' : 'Off'}}</td>
+               <td class="reports-table-td" style="width: 100px;" nowrap>{{dailyData.lightStatus == 1 ? 'On' : 'Off'}}</td>
+               <td class="reports-table-td" style="width: 100px;" nowrap>{{dailyData.Tamper == 1 ? 'On' : 'Off'}}</td>
+               <td class="reports-table-td" style="width: 100px;" nowrap>{{dailyData.ledHealth == 1 ? 'On' : 'Off'}}</td>
+               <td class="reports-table-td" style="width: 100px;" nowrap>{{dailyData.RTCHealth == 1 ? 'On' : 'Off'}}</td>
+               <td class="reports-table-td" style="width: 100px;" nowrap>{{dailyData.SolarHealth == 1 ? 'On' : 'Off'}}</td>
+               <td class="reports-table-td" style="width: 100px;" nowrap>{{dailyData.BatteryHealth == 1 ? 'On' : 'Off'}}</td>
+               <td class="reports-table-td" style="width: 100px;" nowrap>{{dailyData.DeviceTamper == 1 ? 'On' : 'Off'}}</td>
+               <td class="reports-table-td" style="width: 83px;" nowrap>{{dailyData.LDRHealth == 1 ? 'On' : 'Off'}}</td>
+               <!-- <td class="reports-table-td">{{dailyData.alarams}}</td> -->
+            </tr>
+            <!-- <tr *ngIf="dailyDatas.length == 0">
+               <td class="reports-table-td" colspan="12">No data to display</td>
+            </tr> -->
+         </div>
+         </tbody>
+         <!-- <tbody class="reports-table-body" *ngIf="showReportsData2">
+            <tr class="reports-table-tr" *ngFor="let reportsData of reportsData2">
+              <td class="reports-table-td">{{reportsData.date}}</td>
+               <td class="reports-table-td">{{reportsData.energy}}</td>
+               <td class="reports-table-td">{{reportsData.irrEnergy}}</td>
+               <td class="reports-table-td">{{reportsData.pr}}</td>
+               <td class="reports-table-td">{{reportsData.cuf}}</td>
+               <td class="reports-table-td">{{reportsData.ambientTemp}}</td>
+               <td class="reports-table-td">{{reportsData.moduleTemp}}</td>
+               <td class="reports-table-td">{{reportsData.batteryChrg}}</td>
+               <td class="reports-table-td">{{reportsData.batteryConsume}}</td>
+               <td class="reports-table-td">On</td>
+               <td class="reports-table-td">{{reportsData.alarm}}</td>
+            </tr>
+         </tbody> -->
+         
+      </table>
+   </div>
+</div>
+

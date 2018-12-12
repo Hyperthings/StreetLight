@@ -1,0 +1,40 @@
+<!-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	<div class="card">
+		<div class="card-header" style="text-align: center;">Remote Control</div>
+        <div class="scheduling-card-block">
+             <div class="container common-table-container ">  --> 
+             <div class="card-header" style="text-align: center;">Remote Control</div>  
+				<div class="table-responsive" >      
+					 <table class="table waste-remote-table">
+						<thead></thead>
+					    <tbody>
+					    	<tr class="common-table-header">
+					    		<th>Site Name</th>
+							    <th>1st Alarm Time</th>
+							    <th>1st Light Intensity</th>
+							    <th>2nd Alarm Time</th>
+							    <th>2nd Light Intensity</th>
+							    <th>3rd Alarm Time</th>
+							    <th>3rd Light Intensity</th>
+							    <th>PIR Time Out</th>
+					   		</tr>
+					   		<tr *ngFor="let lightControl of lightControls" style="text-align: center;">
+					        	<td>
+					        		<a (click)="variablesService.selctedSiteName = lightControl.siteName" [routerLink]="['/lighting-scheduling']">{{lightControl.siteName}}
+					        		</a>
+					        	</td>
+					        	<td>{{lightControl.firstAlarmTime}}</td>
+					        	<td>{{lightControl.firstAlarmIndensity}}</td>
+					        	<td>{{lightControl.secondAlarmTime}}</td>
+					        	<td>{{lightControl.secondAlarmIndensity}}</td>
+					        	<td>{{lightControl.thirdAlarmTime}}</td>
+					        	<td>{{lightControl.thirdAlarmIndensity}}</td>
+					        	<td>{{lightControl.pirTimeout}}</td>
+				     		</tr>
+					    </tbody>
+					</table>
+				</div><!-- 
+			</div>
+        </div>
+    </div>
+</div> -->

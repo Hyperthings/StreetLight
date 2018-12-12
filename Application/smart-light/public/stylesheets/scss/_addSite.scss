@@ -1,0 +1,91 @@
+.add-site {
+  margin: 0% 0% 0% 18%;
+  /*width: 80%;
+  height: 50%;
+  padding: 2% 0% 0% 10%;
+  @include box-shadow(1px 0px 3px 0px, rgba(0,0,0,0.5));    
+  overflow: hidden;
+  background: rgba(230, 249, 255,.3);*/
+}
+
+.add-site-header {
+  width: 100%;
+  height: 40px;
+  color: white;
+  margin: 0% 0% 2% 0%;
+  padding: 5px;
+  background: #337AB7;
+}
+
+.add-site-text {
+    padding-left: 43%;
+}
+
+.add-site button {
+  width: 40%;
+  height: 30px;
+  padding: 0;
+  font-size: 17px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  background: #337AB7;
+  border: 0;
+  border-bottom: 2px solid #2d6a9f;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 -2px #2d6a9f;
+  box-shadow: inset 0 -2px #2d6a9f;
+  margin-left: 8px;
+}
+
+.add-site-button {
+  margin-left: 46.5%;
+} 
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.add-site .error {
+  width: 90%;
+  font-size: 13px;
+  color: #c7254e;
+  background: #f9f2f4;
+  border-radius: 3px;
+  padding: 10px;
+  margin: -26px 0 15px;
+}
+.add-site label {
+  display: block;
+}
+.add-site span {
+  display: block;
+  margin: 0 0 5px;
+  width: 30%;
+}
+.add-site-inputs, .add-site-textarea{
+  outline: 0;
+  width: 90%;
+  height: 40px;
+  margin-bottom: 15px;
+  padding: 0 15px 2px;
+  font-size: 17px;
+  background: #fff;
+  border: 2px solid #ebebeb;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 -2px #ebebeb;
+  box-shadow: inset 0 -2px #ebebeb;
+  &:focus {
+    border-color: #62c2e4;
+    outline: none; 
+    -webkit-box-shadow: inset 0 -2px #62c2e4;
+    box-shadow: inset 0 -2px #62c2e4;
+  }
+}
+
+.add-site-textarea {
+  height: 120px;
+}
+

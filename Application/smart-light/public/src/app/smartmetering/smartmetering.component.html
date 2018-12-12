@@ -1,0 +1,156 @@
+
+<div class="portfolio-container row">
+    
+    <div class="portfolio-widget col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 " [hidden] = "variablesService.hideChart2" [class.maximize]= "variablesService.maximizeChart2">
+          <div class="portfolio-widget-inner">
+                <div class="portfolio-widget-header">
+                <img class="portolio-maximize-btn" src="../../images/maximize.png" (click)="maximizeChart1()" [hidden] = "variablesService.disableMaximize">
+                <img class="portolio-maximize-btn" src="../../images/minimize.png" (click)="mninimize()" [hidden] = "variablesService.disableMinimize">Energy Generation (kWh)</div>
+                    <div id="chart1" class="portfolio-widget-inner-container portfolio-inner-container" >
+                        <img class="widget-loader" src="../../images/widget-loader.gif">
+                    </div>
+            </div>
+      </div>
+
+    <div class="portfolio-widget col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 " [hidden] = "variablesService.hideChart1" [class.maximize]= "variablesService.maximizeChart1">
+      <div class="portfolio-widget-inner">
+            <div class="portfolio-widget-header">
+                <img class="portolio-maximize-btn" src="../../images/maximize.png" (click)="maximizeChart2()" [hidden] = "variablesService.disableMaximize">
+                <img class="portolio-maximize-btn" src="../../images/minimize.png" (click)="mninimize()" [hidden] = "variablesService.disableMinimize">
+                Energy Consumption (kWh)</div>
+                <div class="portfolio-widget-inner-container portfolio-inner-container" id="chart2">
+                    <img class="widget-loader" src="../../images/widget-loader.gif">
+                </div>
+        </div>
+    </div>
+
+      <div class="portfolio-widget col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 " [hidden] = "variablesService.hideChart3" [class.maximize]= "variablesService.maximizeChart3">
+          <div class="portfolio-widget-inner">
+                <div class="portfolio-widget-header">
+                <img class="portolio-maximize-btn" src="../../images/maximize.png" (click)="maximizeChart3()" [hidden] = "variablesService.disableMaximize">
+                <img class="portolio-maximize-btn" src="../../images/minimize.png" (click)="mninimize()" [hidden] = "variablesService.disableMinimize">Energy Saved (kWh)</div>
+                    <div class="portfolio-inner-container" id="chart3">
+                        <img class="widget-loader" src="../../images/widget-loader.gif">
+                    </div>
+            </div>
+      </div>
+</div>
+
+
+<div class="portfolio-container row" *ngIf="!variablesService.hideTable">
+<!-- <div class="portfolio-header">Site Overview</div> -->
+<div  style="overflow-y: scroll; height: 285px;"> 
+<div>  
+<table class="table table-striped portfolio-table" id="portfolio-table">
+    <thead class="portfolio-thead">
+        <tr class="portfolio-tr">
+            <th class="portfolio-th">Site Name
+                <span class="dropdown"  title="Options">
+                    <span class="dropdown-toggle" data-toggle="dropdown" (click)="getSelectedColumn(1)"></span>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item"><b>Sorting</b></a>
+                        <a class="dropdown-item" id="ascending" (click)="sorting('ascending', 'siteName')"> Ascending Order   &#x2193;</a>
+                        <a class="dropdown-item" id="descending" (click)="sorting('descending', 'siteName')">Descending Order   &#x2191;</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item"><b>Search</b></a>
+                        <div class="dropdown-item portfolio-search-container">
+                            <img class="portfolio-search-image" src="../../images/search.png">
+                            <input class="portfolio-search-text" type="text"  placeholder="Search.." (keyup)="getSiteName($event)">
+                        </div>
+                    </div>
+                </span>
+            </th>
+            <th class="portfolio-th">Location
+                <span class="dropdown"  title="Options">
+                    <span class="dropdown-toggle" data-toggle="dropdown" (click)="getSelectedColumn(2)"></span>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item"><b>Sorting</b></a>
+                        <a class="dropdown-item" id="ascending" (click)="sorting('ascending', 'address')"> Ascending Order   &#x2193;</a>
+                        <a class="dropdown-item" id="descending" (click)="sorting('descending', 'address')">Descending Order   &#x2191;</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item"><b>Search</b></a>
+                        <div class="dropdown-item portfolio-search-container">
+                            <img class="portfolio-search-image" src="../../images/search.png">
+                            <input class="portfolio-search-text" type="text"  placeholder="Search.." (keyup)="getSiteName($event)">
+                        </div>
+                    </div>
+                </span>
+            </th>
+            <th class="portfolio-th">Device Health</th>
+            <th class="portfolio-th">LED Status</th>
+            <th class="portfolio-th">Solar Voltage (V)</th>
+            <th class="portfolio-th">Solar Current (A)</th>
+            <th class="portfolio-th">Battery Voltage (V)</th>
+            <th class="portfolio-th">Battery Current (A)</th>
+            <th class="portfolio-th">Last Communicated Time</th>
+        </tr>
+    </thead>
+    <tbody class="portfolio-tbody">
+        <ng-container *ngFor="let liveData of liveDatas; let i=index; trackBy: trackByUniqueId">
+        <tr class="portfolio-tr">
+            <td class="portfolio-td">
+                <!-- <a (click)="variablesService.selctedSiteName = liveData.siteName; variablesService.selctedDeviceName = undefined" [routerLink]="['/energy-index']">
+                {{liveData.siteName}}</a> -->{{liveData.siteName}}
+                <img src="../../images/caret.svg" class="portfolio-table-caret" data-toggle="collapse" [attr.data-target]="'.' + i" (click)="expandDevice(liveData.siteName, $event)">
+            </td>
+            <td class="portfolio-td">{{liveData.address}}</td>
+            <td class="portfolio-td"><img src="../../images/{{liveData.ledHealth == 1 ? 'on_icon' : 'off_icon'}}.png"></td>
+            <td class="portfolio-td"><img src="../../images/{{liveData.lightStatus == 1 ? 'on_icon' : 'off_icon'}}.png"></td>
+            <td class="portfolio-td">{{liveData.SV}}</td>
+            <td class="portfolio-td">{{liveData.SC}}</td>
+            <td class="portfolio-td">{{liveData.BV}}</td>
+            <td class="portfolio-td">{{liveData.BC}}</td>
+            <td class="portfolio-td">{{liveData.ts | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+        </tr>
+        
+        <tr *ngFor="let thisSitsDevice of thisSitsDevices; let ind=index"> 
+            <ng-container *ngIf="liveData.siteName==thisSitsDevice.siteName">
+                <td class="hiddenRow portfolio-td-devices">
+                    <a (click)="variablesService.selctedSiteName = liveData.siteName; variablesService.selctedDeviceName = thisSitsDevice._id.deviceId; variablesService.selctedDeviceDisplayName = thisSitsDevice.deviceName" [routerLink]="['/energy-index']">
+                        <div class="collapse panel-collapse in" class={{i}} >{{thisSitsDevice.deviceName}}</div>
+                    </a>
+                </td>
+                <td class="hiddenRow portfolio-td-devices">
+                    <div class="collapse panel-collapse in" class={{i}}>{{thisSitsDevice.address}}</div>
+                </td>
+                <td class="hiddenRow portfolio-td-devices">
+                    <div class="collapse panel-collapse in" class={{i}}>
+                        <img src="../../images/{{thisSitsDevice.ledHealth == 1 ? 'on_icon' : 'off_icon'}}.png">
+                    </div>
+                </td>
+                <td class="hiddenRow portfolio-td-devices">
+                    <div class="collapse panel-collapse in" class={{i}}>
+                        <img src="../../images/{{thisSitsDevice.lightStatus == 1 ? 'on_icon' : 'off_icon'}}.png">
+                    </div>
+                </td>
+                <td class="hiddenRow portfolio-td-devices">
+                    <div class="collapse panel-collapse in" class={{i}}>{{thisSitsDevice.SV}}</div>
+                </td>
+                <td class="hiddenRow portfolio-td-devices">
+                    <div class="collapse panel-collapse in" class={{i}}>{{thisSitsDevice.SC}}</div>
+                </td>
+                <td class="hiddenRow portfolio-td-devices">
+                    <div class="collapse panel-collapse in" class={{i}}>{{thisSitsDevice.BV}}</div>
+                </td>
+                <td class="hiddenRow portfolio-td-devices">
+                    <div class="collapse panel-collapse in" class={{i}}>{{thisSitsDevice.BC}}</div>
+                </td>
+                <td class="hiddenRow portfolio-td-devices">
+                    <div class="collapse panel-collapse in" class={{i}}>{{thisSitsDevice.ts | date:'dd-MM-yyyy HH:mm:ss'}}</div>
+                </td>
+            </ng-container>
+        </tr>
+       
+       </ng-container>
+        <tr *ngIf=" !liveDatas || liveDatas.length == 0 ">
+            <td style="text-align: center;" colspan="9">No data to display....</td>
+        </tr>
+       <!--  <tr *ngIf=" liveDatas == undefined">
+            <td style="text-align: center;" colspan="9">Loading....</td>
+        </tr> -->
+    </tbody>
+    
+</table>
+</div>
+</div>
+</div>

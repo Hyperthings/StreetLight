@@ -1,0 +1,39 @@
+
+<login-component *ngIf="!varService.login"></login-component>
+<div class="main-header full-width">
+	<div class="logo col-xl-4 col-lg-4 hidden-sm-down"></div>
+	<div class="title col-xl-6 col-lg-6 col-sm-6 col-xs-12"> Street Light  Monitoring </div>
+	<!-- <div class="user col-xl-4 col-lg-4 hidden-sm-down logout" (click)="logout()"></div>	 -->
+	<div class="main-logout-user logout col-xl-4 col-lg-4 hidden-sm-down">
+      <div class="dropdown">
+    	<img class="main-user-logo dropdown-toggle " data-toggle="dropdown" src="../../../images/user1.png">
+        <!-- <div class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown">
+        <span class="caret"></span></div> -->
+        <ul class="dropdown-menu  dropdown-menu-right" style="width: 200px;">
+          
+            <img class="main-dropdown-avatar" src="../../../images/person-flat.png">
+          
+           		<p class="main-dropdown-label"><b>{{currentUser}}</b></p>
+           		<p class="main-dropdown-label">s.sudhan@hyperthings.in</p>
+            	<img class="main-logout-img" title="Logout" src="../../../images/logout-icon.png" (click)="logout()">
+            	<!-- <p class="main-logout-imgpanel" title="Logout">
+            	</p> -->
+        </ul>
+      </div>
+    </div>
+</div>
+
+<div class="navigation-container" [ngClass]="varService.navbarState">
+     <navbar *ngIf="varService.login"></navbar>    
+</div>
+
+<div class="main-container" [ngClass]="varService.navbarState">
+	<!-- <topnav></topnav> -->
+    <router-outlet></router-outlet>
+
+    <!-- <bottomnav></bottomnav> -->
+</div>
+
+<div class="footer-container">
+    
+</div>

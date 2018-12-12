@@ -1,0 +1,384 @@
+<div class="alarm-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	<div class="alarm-widget col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+		<!-- <div class="alarm-widget-inner"> -->
+		  	<div class="alaram-chart-header">Alarm Overview</div>
+			<div class="alarm-chart-container">
+				<div id="chart1" class="alarm-chart-overviewinner">
+				
+				</div>
+			</div>
+		<!-- </div> -->
+	</div>
+	<div class="alarm-table-container col-xl-9 col-lg-9 col-md-9 col-sm-12 col-xs-12">
+		<p class="alaram-history-header">
+			<!-- <img class="alarm-user-icon" src="../../../images/alarm-icon.png"> -->
+			Unassigned Alarm Details</p>
+		<div class="alarm-table ">
+			<table class="table table-striped table-history-component" id="history-table">
+		    <thead>
+		        <tr class="table-component-tr">
+		            <th class="table-component-th">Alarm ID
+		            	<span class="dropdown"  title="Options" style="cursor: pointer; margin: 5px">
+			                <span class="dropdown-toggle" data-toggle="dropdown" (click)="getSelectedColumn(1)"></span>
+			                <div class="dropdown-menu">
+			                    <a class="dropdown-item"><b>Sorting</b></a>
+			                    <a class="dropdown-item" id="ascending" (click)="sortingAlarmHistory('ascending', 'alarmId')"> Ascending Order   &#x2193;</a>
+			                    <a class="dropdown-item" id="descending" (click)="sortingAlarmHistory('descending', 'alarmId')">Descending Order   &#x2191;</a>
+			                    <div class="dropdown-divider"></div>
+			                    <!-- <a class="dropdown-item"><b>Search</b></a> -->
+			                    <div class="dropdown-item portfolio-search-container">
+	                            <img class="portfolio-search-image" src="../../images/search.png">
+			                        <input class="portfolio-search-text" type="text"  placeholder="Search.." (keyup)="getSiteName($event,'#history-table')">
+			                    </div>
+			                </div>
+			           </span>
+		            </th>
+		            <th class="table-component-th">Site Name
+		            	<span class="dropdown"  title="Options">
+			                <span class="dropdown-toggle" data-toggle="dropdown" (click)="getSelectedColumn(2)"></span>
+			                <div class="dropdown-menu">
+			                    <a class="dropdown-item"><b>Sorting</b></a>
+			                    <a class="dropdown-item" id="ascending" (click)="sortingAlarmHistory('ascending', 'siteName')"> Ascending Order   &#x2193;</a>
+			                    <a class="dropdown-item" id="descending" (click)="sortingAlarmHistory('descending', 'siteName')">Descending Order   &#x2191;</a>
+			                    <div class="dropdown-divider"></div>
+			                    <!-- <a class="dropdown-item"><b>Search</b></a> -->
+			                    <div class="dropdown-item portfolio-search-container">
+	                            <img class="portfolio-search-image" src="../../images/search.png">
+			                        <input class="portfolio-search-text" type="text"  placeholder="Search.." (keyup)="getSiteName($event, '#history-table')">
+			                    </div>
+			                </div>
+			           </span>
+		            </th>
+		            <th class="table-component-th">Device Name
+		            	<span class="dropdown"  title="Options">
+			                <span class="dropdown-toggle" data-toggle="dropdown" (click)="getSelectedColumn(3)"></span>
+			                <div class="dropdown-menu">
+			                    <a class="dropdown-item"><b>Sorting</b></a>
+			                    <a class="dropdown-item" id="ascending" (click)="sortingAlarmHistory('ascending', 'deviceName')"> Ascending Order   &#x2193;</a>
+			                    <a class="dropdown-item" id="descending" (click)="sortingAlarmHistory('descending', 'deviceName')">Descending Order   &#x2191;</a>
+			                    <div class="dropdown-divider"></div>
+			                    <!-- <a class="dropdown-item"><b>Search</b></a> -->
+			                    <div class="dropdown-item portfolio-search-container">
+	                            <img class="portfolio-search-image" src="../../images/search.png">
+			                        <input class="portfolio-search-text" type="text"  placeholder="Search.." (keyup)="getSiteName($event, '#history-table')" (keyup.enter)="closeDropdown()">
+			                    </div>
+			                </div>
+			           </span>
+		            </th>
+		            <th class="table-component-th">Alarm Name
+		            	<span class="dropdown"  title="Options">
+			                <span class="dropdown-toggle" data-toggle="dropdown" (click)="getSelectedColumn(4)"></span>
+			                <div class="dropdown-menu">
+			                    <a class="dropdown-item"><b>Sorting</b></a>
+			                    <a class="dropdown-item" id="ascending" (click)="sortingAlarmHistory('ascending', 'alarmName')"> Ascending Order   &#x2193;</a>
+			                    <a class="dropdown-item" id="descending" (click)="sortingAlarmHistory('descending', 'alarmName')">Descending Order   &#x2191;</a>
+			                    <div class="dropdown-divider"></div>
+			                    <!-- <a class="dropdown-item"><b>Search</b></a> -->
+			                    <div class="dropdown-item portfolio-search-container">
+	                            <img class="portfolio-search-image" src="../../images/search.png">
+			                        <input class="portfolio-search-text" type="text"  placeholder="Search.." (keyup)="getSiteName($event, '#history-table')">
+			                    </div>
+			                </div>
+			           </span>
+		            </th>
+		            <th class="table-component-th">Severity
+		            	<span class="dropdown"  title="Options">
+			                <span class="dropdown-toggle" data-toggle="dropdown" (click)="getSelectedColumn(5)"></span>
+			                <div class="dropdown-menu">
+			                    <a class="dropdown-item"><b>Sorting</b></a>
+			                    <a class="dropdown-item" id="ascending" (click)="sortingAlarmHistory('ascending', 'severity')"> Ascending Order   &#x2193;</a>
+			                    <a class="dropdown-item" id="descending" (click)="sortingAlarmHistory('descending', 'severity')">Descending Order   &#x2191;</a>
+			                    <div class="dropdown-divider"></div>
+			                    <!-- <a class="dropdown-item"><b>Search</b></a> -->
+			                    <div class="dropdown-item portfolio-search-container">
+	                            <img class="portfolio-search-image" src="../../images/search.png">
+			                        <input class="portfolio-search-text" type="text"  placeholder="Search.." (keyup)="getSiteName($event, '#history-table')">
+			                    </div>
+			                </div>
+			           </span>
+		            </th>
+		            <th class="table-component-th">Description</th>
+		            <th class="table-component-th">Occured Time</th>
+		            <th class="table-component-th">Cleared Time</th>
+		            <th class="table-component-th">Status
+		            	<span class="dropdown"  title="Options">
+			                <span class="dropdown-toggle" data-toggle="dropdown" (click)="getSelectedColumn(9)"></span>
+			                <div class="dropdown-menu dropdown-menu-right">
+			                    <a class="dropdown-item"><b>Sorting</b></a>
+			                    <a class="dropdown-item" id="ascending" (click)="sortingAlarmHistory('ascending', 'status')"> Ascending Order   &#x2193;</a>
+			                    <a class="dropdown-item" id="descending" (click)="sortingAlarmHistory('descending', 'status')">Descending Order   &#x2191;</a>
+			                    <div class="dropdown-divider"></div>
+			                    <!-- <a class="dropdown-item"><b>Search</b></a> -->
+			                    <div class="dropdown-item portfolio-search-container">
+	                            <img class="portfolio-search-image" src="../../images/search.png">
+			                        <input class="portfolio-search-text" type="text"  placeholder="Search.." (keyup)="getSiteName($event, '#history-table')">
+			                    </div>
+			                </div>
+			           </span>
+		            </th>
+		            <th class="table-component-th">Assign To</th>
+		        </tr>
+		    </thead>
+		    <tbody class="table-component-body">
+		        <tr class="table-component-tr" *ngFor="let alarm_history of alarm_histories">
+		            <td class="table-component-td">{{alarm_history.alarmId}}</td>
+			            <td class="table-component-td">{{alarm_history.siteName}}</td>
+			            <td class="table-component-td">{{alarm_history.deviceName}}</td>
+		            <td class="table-component-td">{{alarm_history.alarmName}}</td>
+		            <td class="table-component-td">{{alarm_history.severity}}</td>
+		            <td class="table-component-td alarm-extra-width">{{alarm_history.description}}</td>
+		            <td class="table-component-td alarm-extra-width">{{alarm_history.occuredTime}}</td>
+		            <td class="table-component-td text-center alarm-extra-width">{{alarm_history.clearedTime}}</td>
+		            <td class="table-component-td">{{alarm_history.status}}</td>
+		            <td class="table-component-td">
+		            	<img class="alarm-user-icon" src="../../../images/user1.png" (click)="showIncharge(alarm_history)">
+		            </td>
+		        </tr>
+		        <tr *ngIf="!alarm_histories || alarm_histories.length == 0 ">
+		        	<td style="text-align:center;font-weight: bold;" colspan="8">No data to display</td>
+		        </tr>
+		    </tbody>
+		</table>
+		</div>
+		
+	</div>
+</div>
+<div class="alarm-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	<div class="alarm-widget col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+		<!-- <div class="alarm-widget-inner"> -->
+		  	<div class="alaram-chart-header">Alarm Severity Overview</div>
+			<div class="alarm-chart-container">
+				<div id="chart2" class="alarm-chart-severityinner">
+				
+				</div>
+			</div>
+		<!-- </div> -->
+	</div>
+	<div class="alarm-table-container col-xl-9 col-lg-9 col-md-9 col-sm-12 col-xs-12">
+		<p class="alaram-assigned-header">Assigned Alarm Details</p>
+		<div class="alarm-table ">
+			<table class="table table-striped table-history-component" id="assigned-table">
+				<thead>
+				    <tr class="table-component-tr">
+				        <th class="table-component-th">Alarm ID
+				        	<span class="dropdown"  title="Options">
+			                    <span class="dropdown-toggle" data-toggle="dropdown" (click)="getSelectedColumn(1)"></span>
+			                    <div class="dropdown-menu">
+			                        <a class="dropdown-item"><b>Sorting</b></a>
+			                        <a class="dropdown-item" id="ascending" (click)="sortingAssignedAlarm('ascending', 'alarmId')"> Ascending Order   &#x2193;</a>
+			                        <a class="dropdown-item" id="descending" (click)="sortingAssignedAlarm('descending', 'alarmId')">Descending Order   &#x2191;</a>
+			                        <div class="dropdown-divider"></div>
+			                        <!-- <a class="dropdown-item"><b>Search</b></a> -->
+			                        <div class="dropdown-item portfolio-search-container">
+			                            <img class="portfolio-search-image" src="../../images/search.png">
+			                            <input class="portfolio-search-text" type="text"  placeholder="Search.." (keyup)="getSiteName($event, '#assigned-table')">
+			                        </div>
+			                    </div>
+			                </span>
+				        </th>
+
+			            <th class="table-component-th">Site Name
+			            	<span class="dropdown"  title="Options">
+			                    <span class="dropdown-toggle" data-toggle="dropdown" (click)="getSelectedColumn(2)"></span>
+			                    <div class="dropdown-menu">
+			                        <a class="dropdown-item"><b>Sorting</b></a>
+			                        <a class="dropdown-item" id="ascending" (click)="sortingAssignedAlarm('ascending', 'siteName')"> Ascending Order   &#x2193;</a>
+			                        <a class="dropdown-item" id="descending" (click)="sortingAssignedAlarm('descending', 'siteName')">Descending Order   &#x2191;</a>
+			                        <div class="dropdown-divider"></div>
+			                        <!-- <a class="dropdown-item"><b>Search</b></a> -->
+			                        <div class="dropdown-item portfolio-search-container">
+			                            <img class="portfolio-search-image" src="../../images/search.png">
+			                            <input class="portfolio-search-text" type="text"  placeholder="Search.." (keyup)="getSiteName($event, '#assigned-table')">
+			                        </div>
+			                    </div>
+			                </span>
+			            </th>
+			            <th class="table-component-th">Device Name
+			            	<span class="dropdown"  title="Options">
+			                    <span class="dropdown-toggle" data-toggle="dropdown" (click)="getSelectedColumn(3)"></span>
+			                    <div class="dropdown-menu">
+			                        <a class="dropdown-item"><b>Sorting</b></a>
+			                        <a class="dropdown-item" id="ascending" (click)="sortingAssignedAlarm('ascending', 'deviceName')"> Ascending Order   &#x2193;</a>
+			                        <a class="dropdown-item" id="descending" (click)="sortingAssignedAlarm('descending', 'deviceName')">Descending Order   &#x2191;</a>
+			                        <div class="dropdown-divider"></div>
+			                        <!-- <a class="dropdown-item"><b>Search</b></a> -->
+			                        <div class="dropdown-item portfolio-search-container">
+			                            <img class="portfolio-search-image" src="../../images/search.png">
+			                            <input class="portfolio-search-text" type="text"  placeholder="Search.." (keyup)="getSiteName($event, '#assigned-table')">
+			                        </div>
+			                    </div>
+			                </span>
+			            </th>
+				        <th class="table-component-th">Alarm Name
+				        	<span class="dropdown"  title="Options">
+			                    <span class="dropdown-toggle" data-toggle="dropdown" (click)="getSelectedColumn(4)"></span>
+			                    <div class="dropdown-menu">
+			                        <a class="dropdown-item"><b>Sorting</b></a>
+			                        <a class="dropdown-item" id="ascending" (click)="sortingAssignedAlarm('ascending', 'alarmName')"> Ascending Order   &#x2193;</a>
+			                        <a class="dropdown-item" id="descending" (click)="sortingAssignedAlarm('descending', 'alarmName')">Descending Order   &#x2191;</a>
+			                        <div class="dropdown-divider"></div>
+			                        <!-- <a class="dropdown-item"><b>Search</b></a> -->
+			                        <div class="dropdown-item portfolio-search-container">
+			                            <img class="portfolio-search-image" src="../../images/search.png">
+			                            <input class="portfolio-search-text" type="text"  placeholder="Search.." (keyup)="getSiteName($event, '#assigned-table')">
+			                        </div>
+			                    </div>
+			                </span>
+				        </th>
+				        <th class="table-component-th">Severity
+				        <span class="dropdown"  title="Options">
+			                    <span class="dropdown-toggle" data-toggle="dropdown" (click)="getSelectedColumn(5)"></span>
+			                    <div class="dropdown-menu">
+			                        <a class="dropdown-item"><b>Sorting</b></a>
+			                        <a class="dropdown-item" id="ascending" (click)="sortingAssignedAlarm('ascending', 'severity')"> Ascending Order   &#x2193;</a>
+			                        <a class="dropdown-item" id="descending" (click)="sortingAssignedAlarm('descending', 'severity')">Descending Order   &#x2191;</a>
+			                        <div class="dropdown-divider"></div>
+			                        <!-- <a class="dropdown-item"><b>Search</b></a> -->
+			                        <div class="dropdown-item portfolio-search-container">
+			                            <img class="portfolio-search-image" src="../../images/search.png">
+			                            <input class="portfolio-search-text" type="text"  placeholder="Search.." (keyup)="getSiteName($event, '#assigned-table')">
+			                        </div>
+			                    </div>
+			                </span></th>
+				        <th class="table-component-th">Description</th>
+				        <th class="table-component-th">Occured Time</th>
+				        <th class="table-component-th">Cleared Time</th>
+				        <th class="table-component-th">Status
+				        	<span class="dropdown"  title="Options">
+			                    <span class="dropdown-toggle" data-toggle="dropdown" (click)="getSelectedColumn(9)"></span>
+			                    <div class="dropdown-menu">
+			                        <a class="dropdown-item"><b>Sorting</b></a>
+			                        <a class="dropdown-item" id="ascending" (click)="sortingAssignedAlarm('ascending', 'status')"> Ascending Order   &#x2193;</a>
+			                        <a class="dropdown-item" id="descending" (click)="sortingAssignedAlarm('descending', 'status')">Descending Order   &#x2191;</a>
+			                        <div class="dropdown-divider"></div>
+			                        <!-- <a class="dropdown-item"><b>Search</b></a> -->
+			                        <div class="dropdown-item portfolio-search-container">
+			                            <img class="portfolio-search-image" src="../../images/search.png">
+			                            <input class="portfolio-search-text" type="text"  placeholder="Search.." (keyup)="getSiteName($event, '#assigned-table')">
+			                        </div>
+			                    </div>
+			                </span>
+				        </th>
+				        <th class="table-component-th">Incharge Name</th>
+				        <th class="table-component-th">Incharge Email</th>
+				        <th class="table-component-th">Incharge PhNo</th>
+				    </tr>
+				</thead>
+				<tbody class="table-component-body">
+				    <tr class="table-component-tr" *ngFor="let assignedAlarm of AlarmsDetails">
+				        <td class="table-component-td">{{assignedAlarm.alarmId}}</td>
+			            <td class="table-component-td">{{assignedAlarm.siteName}}</td>
+			            <td class="table-component-td">{{assignedAlarm.deviceName}}</td>
+				        <td class="table-component-td">{{assignedAlarm.alarmName}}</td>
+				        <td class="table-component-td">{{assignedAlarm.severity}}</td>
+				        <td class="table-component-td alarm-extra-width">{{assignedAlarm.description}}</td>
+				        <td class="table-component-td alarm-extra-width">{{assignedAlarm.occuredTime}}</td>
+				        <td class="table-component-td text-center alarm-extra-width">{{assignedAlarm.clearedTime}}</td>
+				        <td class="table-component-td">{{assignedAlarm.status}}</td>
+				        <td class="table-component-td">{{assignedAlarm.inchargePersonName}}</td>
+				        <td class="table-component-td">{{assignedAlarm.inchargePersonMail}}</td>
+				        <td class="table-component-td">{{assignedAlarm.inchargePersonPhNo}}</td>
+				    </tr>
+				    <tr *ngIf="!AlarmsDetails || AlarmsDetails.length == 0 ">
+			        	<td style="text-align:center;font-weight: bold" colspan="10">No data to display</td>
+			        </tr>
+				</tbody>
+			</table>
+		</div>
+		
+	</div>
+</div>
+
+<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content">
+			<div class="modal-body remote-modal">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<h5 class="alarm-modal-header col-xl-11 col-lg-11 col-md-11 col-sm-11 col-xs-11">Incharge Details</h5>
+					<button type="button" class="close alarm-modal-dismiss col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-1" data-dismiss="modal">&times;</button>
+				</div>
+				<table class="table table-striped alarm-table" style="height: 40%;">
+					<thead class="alarm-thead">
+						<tr class="alarm-tr">
+							<th class="alarm-th">ID</th>
+							<th class="alarm-th">Name</th>
+							<th class="alarm-th">Ph Number</th>
+							<th class="alarm-th">Email</th>
+							<th class="alarm-th">Select</th>
+						</tr>
+					</thead>
+					<tbody class="alarm-tbody">
+						<tr class="alarm-tr" *ngFor="let inchargeDetail of inchargeDetails">
+							<td class="alarm-td">{{inchargeDetail.id}}</td>
+							<td class="alarm-td">{{inchargeDetail.name}}</td>
+							<td class="alarm-td">{{inchargeDetail.phNumber}}</td>
+							<td class="alarm-td">{{inchargeDetail.mail}}</td>
+							<td class="alarm-td">
+								<!-- <input type="checkbox" (click)="getInchargeDetails(inchargeDetail)"> -->
+								<input type="radio" name="inchargeGroup" (click)="getInchargeDetails(inchargeDetail)" required>
+							</td> 
+						</tr>
+					</tbody>
+				</table>
+				<div>
+					<button type="button" class="btn btn-primary alarm-modal-btn alarm-modal-button" (click)="addIncharge()" >Add Incharge</button>
+					<button type="button" class="btn btn-primary alarm-modal-btn alarm-modal-button" (click)="saveAssignedAlarms( inchargeGroup)" data-dismiss="modal" style="float: right;" [disabled]='isInchargeSelected' >Submit</button>
+				</div>
+				<!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="modal fade" id="addIncharge" role="dialog">
+	<div class="modal-dialog modal-md">
+		<div class="modal-content">
+			<div class="modal-body remote-modal">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<h5 class="alarm-modal-header col-xl-11 col-lg-11 col-md-11 col-sm-11 col-xs-11">Incharge Details</h5>
+					<button type="button" class="close alarm-modal-dismiss col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-1" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
+					<form #addInchargedata="ngForm" novalidate >
+					  	<div class="form-group">
+						    <label for="exampleInputPhone1">ID</label>
+						    <input type="text" class="form-control" id="exampleInputPhone1" aria-describedby="emailHelp" placeholder="Enter ID" [(ngModel)]="inchargeId" name="id" ngModel required>
+					  	</div>
+					  	<div class="form-group">
+						    <label for="exampleInputName1">Name</label>
+						    <input type="text" class="form-control" id="exampleInputName1" aria-describedby="emailHelp" placeholder="Enter Name" [(ngModel)]="inchargeName" name="name" ngModel required>
+					  	</div>
+					  	<div class="form-group">
+						    <label for="exampleInputPhone1">Phone Number</label>
+						    <input type="number" class="form-control" id="exampleInputPhone1" aria-describedby="emailHelp" placeholder="Enter Phone Number" [(ngModel)]="inchargePhone" name="phNumber" ngModel required>
+					  	</div>
+					  	<div class="form-group">
+						    <label for="exampleInputEmail1">Email address</label>
+						    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)]="inchargeEmail" name="email" ngModel required>
+					  	</div>
+					</form><!-- 
+					<pre>{{addInchargedata.value | json}}</pre> -->
+				</div>
+					
+				<button type="button" class="btn btn-primary alarm-modal-btn" data-dismiss="modal" style="margin-left: 60%;" [disabled]="addInchargedata.invalid" (click)="addInchargeDetails()">Submit</button>
+				<!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<button id="openAlarmModalButton" [hidden]="true" data-toggle="modal" data-target="#AlarmModal">Open Modal</button>
+    <div class="modal fade" id="AlarmModal" role="dialog">
+        <div class="modal-dialog modal-sm">
+        <div class="modal-content common-popup-content">
+            <div class="modal-body">
+                <p> {{popupStatusMessage}} </p>
+            </div>
+            <div class="modal-footer common-popup-footer">
+                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

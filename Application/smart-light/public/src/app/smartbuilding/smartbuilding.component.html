@@ -1,0 +1,102 @@
+
+<map-component [objects]="smart_building"></map-component>
+
+<div class="bottom-container" [ngClass]="variablesService.navbarState">
+    <!-- <div class="card-header">
+        Test title
+    </div> -->
+
+    <div class="card-block row">
+        <div class="bottom-card">
+
+        <div class="weather-forecast bottom-card-inner">
+            <div class="vertical-header">Energy Consumption</div>
+         <div id="chart1" class="bottom-card-inner-container">
+            </div>
+
+        </div>  
+
+        </div>
+
+        <div class="bottom-card">
+
+        <div class="weather-forecast bottom-card-inner">
+            <div class="vertical-header">Consumption History</div>
+            <div id="chart2" class="bottom-card-inner-container">
+            </div>
+        </div>  
+
+        </div>
+
+        <div class="bottom-card">
+
+        <div class="weather-forecast bottom-card-inner">
+            <div class="vertical-header">Notification</div>
+            <div class="notification_contianer bottom-card-inner-container">
+                <div class="notification-item full-width">
+                <div class="icon danger one-third-width"></div>
+                <div class="text col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8">F1 -Consumption High</div>
+               
+            </div>
+
+           
+                <div class="notification-item full-width">
+                <div class="icon warning one-third-width"></div>
+                <div class="text col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8">GF- CO2 Level higher</div>
+               
+            </div>
+
+            
+                <div class="notification-item full-width">
+                <div class="icon danger one-third-width"></div>
+                <div class="text col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8">F3 -HVAC - Off</div>
+               
+            </div>
+
+            <div class="notification-item full-width">
+                <div class="icon info one-third-width"></div>
+                <div class="text col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8">F2-Consumption Normal</div>
+               
+            </div>
+
+            </div>
+        </div>  
+
+        </div>
+
+        <div class="bottom-card">
+
+            <div class="weather-forecast bottom-card-inner">
+            <div class="vertical-header">Weather</div>
+            <div class="weather-container">
+
+            <div class="weather-item full-width">
+                <div class="icon sun one-third-width"></div>
+                <div class="temperature one-third-width">34°</div>
+                <div class="label one-third-width">17-Nov Sunny</div>
+            </div>
+            <div class="weather-item full-width">
+                <div class="icon sun-cloud one-third-width"></div>
+                <div class="temperature one-third-width">33°</div>
+                <div class="label one-third-width"> 18-Nov Cloudy</div>
+            </div>
+            <div class="weather-item full-width">
+                <div class="icon sun one-third-width"></div>
+                <div class="temperature one-third-width">35°</div>
+                <div class="label one-third-width">19-Nov Sunny</div>
+            </div>
+            <div class="weather-item full-width">
+                <div class="icon rain one-third-width"></div>
+                <div class="temperature one-third-width">30°</div>
+                <div class="label one-third-width">20-Nov Rainfall</div>
+            </div>
+
+                
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>

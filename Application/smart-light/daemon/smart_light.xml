@@ -1,0 +1,26 @@
+<service>
+	<id>smart_light.exe</id>
+	<name>Smart_Light</name>
+	<description>The Smart Light web server.</description>
+	<executable>C:\Program Files\nodejs\node.exe</executable>
+	<logmode>rotate</logmode>
+	<argument>--harmony</argument>
+	<argument>E:\iot_solutions\smart-light\node_modules\node-windows\lib\wrapper.js</argument>
+	<argument>--file</argument>
+	<argument>E:\iot_solutions\smart-light\server.js</argument>
+	<argument>--log</argument>
+	<argument>Smart_Light wrapper</argument>
+	<argument>--grow</argument>
+	<argument>0.25</argument>
+	<argument>--wait</argument>
+	<argument>1</argument>
+	<argument>--maxrestarts</argument>
+	<argument>3</argument>
+	<argument>--abortonerror</argument>
+	<argument>n</argument>
+	<argument>--stopparentfirst</argument>
+	<argument>undefined</argument>
+	<stoptimeout>30sec</stoptimeout>
+	<env name="HOME" value="C:\Users\Administrator"/>
+	<workingdirectory>E:\iot_solutions\smart-light</workingdirectory>
+</service>

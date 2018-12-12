@@ -1,0 +1,225 @@
+<div class="site-overview-container">
+   <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12 col-xs-12">
+       <h4 class="site-card-header col-lg-11 col-xl-11 col-md-11 col-sm-11 col-xs-11"> Site Configuration</h4>
+          <abbr title="Add Site"><img class="site-card-icon col-lg-1 col-xl-1 col-md-1 col-sm-1 col-xs-1" src="../../images/symbol_add.png"  [routerLink]="['/add-site']"> </abbr>
+   </div>
+</div>
+
+   <div class="site-table-container">
+      <div id="exportable">
+         <!-- <table class="table table-stripped">
+            <thead>
+               <tr>
+                  <th class="site-table-header"> Site</th>
+                  <th class="site-table-header"> Solution</th>
+                  <th class="site-table-header"> Serial No.</th>
+                  <th class="site-table-header"> Latitude</th>
+                  <th class="site-table-header"> Longitude</th>
+                  <th class="site-table-header"> Address</th>
+                  <th class="site-table-header"> Conncted Devices</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr class="site-table-tr" *ngFor="let sitesDetail of sitesDetails" >
+                  <td class="site-table-td">{{sitesDetail.site}}</td>
+                  <td class="site-table-td">{{sitesDetail.solution}}</td>
+                  <td class="site-table-td">{{sitesDetail.siteId}}</td>
+                  <td class="site-table-td">{{sitesDetail.latitude}}</td>
+                  <td class="site-table-td">{{sitesDetail.longitude}}</td>
+                  <td class="site-table-td">{{sitesDetail.address}}</td>
+               </tr>
+            </tbody>
+         </table> -->
+
+         <table class="table livedata-table" id="mytable">
+        <thead class="portfolio-thead">
+            <tr class="portfolio-tr">
+                <th class="portfolio-th">Site
+                    <!-- <span class="dropdown"  title="Options">
+                        <span class="dropdown-toggle" data-toggle="dropdown" (click)="getSelectedColumn(1)"></span>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item"><b>Sorting</b></a>
+                                <a class="dropdown-item" id="ascending" (click)="sorting('ascending')"> Ascending Order   &#x2193;</a>
+                                <a class="dropdown-item" id="descending" (click)="sorting('descending')">Descending Order   &#x2191;</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item"><b>Search</b></a>
+                                <div class="dropdown-item portfolio-search-container">
+                                    <img class="portfolio-search-image" src="../../images/search.png">
+                                    <input class="portfolio-search-text" type="text"  placeholder="Search.." (keyup)="getSiteName($event)">
+                                </div>
+                        </div>
+                    </span>  -->
+                </th>
+                <th class="portfolio-th">Solution
+                    <!-- <span class="dropdown"  title="Options">
+                        <span class="dropdown-toggle" data-toggle="dropdown" (click)="getSelectedColumn(2)"></span>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item"><b>Sorting</b></a>
+                            <a class="dropdown-item" id="ascending" (click)="sorting('ascending')"> Ascending Order   &#x2193;</a>
+                            <a class="dropdown-item" id="descending" (click)="sorting('descending')">Descending Order   &#x2191;</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item"><b>Search</b></a>
+                            <div class="dropdown-item portfolio-search-container">
+                                <img class="portfolio-search-image" src="../../images/search.png">
+                                <input class="portfolio-search-text" type="text"  placeholder="Search.." (keyup)="getSiteName($event)">
+                            </div>
+                        </div>
+                    </span> -->
+                </th><!-- 
+                <th class="portfolio-th">Site</th>
+                <th class="portfolio-th">Solution</th> -->
+                <th class="portfolio-th">Serial No.</th>
+                <th class="portfolio-th">Latitude</th>
+                <th class="portfolio-th">Longitude</th>
+                <th class="portfolio-th">Address</th>
+                <th class="portfolio-th">Conncted Devices</th>
+                <th class="portfolio-th">Options</th>
+            </tr>
+        </thead>
+        <tbody class="portfolio-tbody">
+           <ng-container *ngFor="let sitesDetail of sitesDetails let i=index">
+            <tr class="portfolio-tr">
+                <td class="portfolio-td"><a>
+                {{sitesDetail.siteName}}</a>
+                    <img src="../../images/caret.svg" class="portfolio-table-caret" data-toggle="collapse" [attr.data-target]="'.' + i" (click)="expandGateway(sitesDetail.siteName, $event)">
+                </td>
+                <td class="portfolio-td">{{sitesDetail.solution}}</td><!-- 
+                <td class="portfolio-td"><img src="../../images/on_icon.png"></td>
+                <td class="portfolio-td"><img src="../../images/on_icon.png"></td>[routerLink]="['/add-device', sitesDetail.site]"  -->
+                <td class="portfolio-td">{{sitesDetail.siteId}}</td>
+                <td class="portfolio-td">{{sitesDetail.latitude}}</td>
+                <td class="portfolio-td">{{sitesDetail.longitude}}</td>
+                <td class="portfolio-td">{{sitesDetail.address}}</td>
+                <td class="portfolio-td">{{sitesDetail.thisSiteDevices}}</td>
+                <td class="portfolio-td">
+                  <span class="glyphicon glyphicon-plus" title="Add Gateway" (click)="addGateway(sitesDetail.siteName)"></span>
+                  <span class="glyphicon glyphicon-trash" title="Delete Site" (click)="deleteSite(sitesDetail)"></span>
+                </td>
+            </tr>
+            
+            <ng-container *ngFor="let thisSitsGateway of thisSitsGateways let ind=index">
+               <tr> 
+                  <ng-container *ngIf="sitesDetail.siteName == thisSitsGateway.siteName">
+                       <td class="hiddenRow portfolio-td-gateway"><a>
+                           <div class="collapse panel-collapse in" class={{i}} >{{thisSitsGateway.gatewayId}}</div></a>
+                            <img src="../../images/caret.svg" class="portfolio-table-caret" 
+                               style="float: right; margin-top: -10px;" data-toggle="collapse-device" [attr.data-target]="'.' + ind" (click)="expandDevice(sitesDetail.siteName,thisSitsGateway.gatewayName,$event)">
+                       </td>
+                       <td class="hiddenRow portfolio-td-gateway">
+                           <div class="collapse panel-collapse in" class={{i}}>{{thisSitsGateway.solution}}</div>
+                       </td>
+                       <!-- <td class="hiddenRow portfolio-td-gateway">
+                           <div class="collapse panel-collapse in" class={{i}}><img src="../../images/on_icon.png"></div>
+                       </td>
+                       <td class="hiddenRow portfolio-td-gateway">
+                           <div class="collapse panel-collapse in" class={{i}}>
+                           <img src="../../images/on_icon.png"></div>
+                       </td> -->
+                       <td class="hiddenRow portfolio-td-gateway">
+                           <div class="collapse panel-collapse in" class={{i}}>{{thisSitsGateway.gatewayName}}</div>
+                       </td>
+                       <td class="hiddenRow portfolio-td-gateway">
+                           <div class="collapse panel-collapse in" class={{i}}>{{thisSitsGateway.latitude}}</div>
+                       </td>
+                       <td class="hiddenRow portfolio-td-gateway">
+                           <div class="collapse panel-collapse in" class={{i}}>{{thisSitsGateway.longitude}}</div>
+                       </td>
+                       <td class="hiddenRow portfolio-td-gateway">
+                           <div class="collapse panel-collapse in" class={{i}}>{{thisSitsGateway.address}}</div>
+                       </td>
+                       <td class="hiddenRow portfolio-td-gateway">
+                           <div class="collapse panel-collapse in" class={{i}}>{{thisSitsGateway.thisGatewayDevices}}</div>
+                       </td><td class="hiddenRow portfolio-td-gateway">
+                           <div class="collapse panel-collapse in" class={{i}}>
+                             <span class="glyphicon glyphicon-plus" title="Add Device" (click)="addDeviceForThisGateway(thisSitsGateway.siteName, thisSitsGateway.gatewayName, thisSitsGateway.gatewayId)"></span>
+                             <span class="glyphicon glyphicon-edit" title="Edit Gateway" (click)="editGateway(thisSitsGateway)"></span>
+                             <span class="glyphicon glyphicon-trash" title="Delete Gateway" (click)="deleteGateway(sitesDetail, thisSitsGateway)"></span>
+                           </div>
+                       </td>
+                  </ng-container>
+               </tr>
+               <tr *ngFor="let thisSitsDevice of thisSitsDevices"> 
+                  <ng-container *ngIf="sitesDetail.siteName == thisSitsGateway.siteName && thisSitsGateway.gatewayName == thisSitsDevice.gatewayName">
+                       <td class="hiddenRowDevice portfolio-td-devices"><a>
+                           <div class="collapse-device panel-collapse in" class={{ind}} >{{thisSitsDevice.deviceName}}</div></a>
+                            <!-- <i class="arrow down" data-toggle="collapse" [attr.data-target]="'.' + i" (click)="expandDevice(sitesDetail.site,thisSitsDevice.gateway)"></i> -->
+                       </td>
+                       <td class="hiddenRowDevice portfolio-td-devices">
+                           <div class="collapse-device panel-collapse in" class={{ind}}>{{thisSitsDevice.solution}}</div>
+                       </td>
+                       <!-- <td class="hiddenRowDevice portfolio-td-devices">
+                           <div class="collapse-device panel-collapse in" class={{i}}><img src="../../images/on_icon.png"></div>
+                       </td>
+                       <td class="hiddenRowDevice portfolio-td-devices">
+                           <div class="collapse-device panel-collapse in" class={{i}}>
+                           <img src="../../images/on_icon.png"></div>
+                       </td> -->
+                       <td class="hiddenRowDevice portfolio-td-devices">
+                           <div class="collapse-device panel-collapse in" class={{ind}}>{{thisSitsDevice.deviceId}}</div>
+                       </td>
+                       <td class="hiddenRowDevice portfolio-td-devices">
+                           <div class="collapse-device panel-collapse in" class={{ind}}>{{thisSitsDevice.latitude}}</div>
+                       </td>
+                       <td class="hiddenRowDevice portfolio-td-devices">
+                           <div class="collapse-device panel-collapse in" class={{ind}}>{{thisSitsDevice.longitude}}</div>
+                       </td>
+                       <td class="hiddenRowDevice portfolio-td-devices">
+                           <div class="collapse-device panel-collapse in" class={{ind}}>{{thisSitsDevice.address}}</div>
+                       </td>
+                       <td class="hiddenRowDevice portfolio-td-devices">
+                           <div class="collapse-device panel-collapse in" class={{ind}}>-</div>
+                       </td> <td class="hiddenRowDevice portfolio-td-devices">
+                           <div class="collapse-device panel-collapse in" class={{ind}}>
+                             <span class="glyphicon glyphicon-edit" title="Edit Device" (click)=editDevice(thisSitsDevice)></span>
+                             <span class="glyphicon glyphicon-trash" title="Delete Device" (click)="deleteDevice(sitesDetail, thisSitsGateway,thisSitsDevice)"></span>
+                           </div>
+                       </td>
+                  </ng-container>
+               </tr>
+            </ng-container>
+       </ng-container>
+           <!--  <tr *ngIf=" !liveDatas || liveDatas.length == 0  || !showErrorMsg">
+                <td style="text-align: center;" colspan="9">No data to display....</td>
+            </tr> -->
+        </tbody>
+        
+    </table>
+      </div>
+   </div>
+
+
+
+
+<button id="openModalButton" [hidden]="true" data-toggle="modal" data-target="#myModal">Open Modal</button>
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content common-popup-content">
+      <div class="modal-body">
+        <p> {{popupStatusMessage}} </p>
+      </div>
+      <div class="modal-footer common-popup-footer">
+        <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<button id="openModalResponseButton" [hidden]="true" data-toggle="modal" data-target="#myModalResponse">Open Modal</button>
+          <div class="modal fade" id="myModalResponse" role="dialog">
+            <div class="modal-dialog modal-sm">
+              <div class="modal-content common-popup-content">
+                <!-- <div class="modal-header" style="padding: 10px; border: none;">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div> -->
+                <div class="modal-body">
+                  <p> CommandID : {{popupResponseMessage.CommandID}} </p>
+                  <p> Command : {{popupResponseMessage.Command}} </p>
+                  <p> Status : {{popupResponseMessage.Status}} </p>
+                </div>
+                 <div class="modal-footer common-popup-footer">
+                    <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Close</button>
+                  </div>
+              </div>
+            </div>
+          </div>

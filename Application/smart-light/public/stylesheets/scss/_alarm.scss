@@ -1,0 +1,220 @@
+.alarm-container {
+  width: 105%;
+  height:40%;
+  margin-left: -2.5%;
+  padding: 0 !important;
+   border-radius: 0 !important;
+   border: none;
+}
+
+.alarm-widget{
+	  /*height: 90%;
+    background:rgba(255,255,255,0.4);
+    padding:5px!important;
+	border:none;*/
+  width: 20%;
+  -webkit-box-shadow: 6px 7px 12px -6px rgba(102,101,102,0.91);
+-moz-box-shadow: 6px 7px 12px -6px rgba(102,101,102,0.91);
+box-shadow: 6px 7px 12px -6px rgba(102,101,102,0.91);
+}
+
+/*.alarm-widget-inner{
+	height: 100%;
+    @include box-shadow(1px 0px 3px 0px, rgba(0,0,0,0.5));    
+    overflow: hidden;
+    background: rgba(255,255,255,0.4);
+}
+
+.alarm-widget-header {
+     width: 97%;
+     text-align : center;
+     height: 25px;
+     background: #2980b9;
+     color:#f0f0f0;
+     position: absolute;
+     padding-top: 2px;
+}
+
+.alarm-inner-container{
+    height: 85%;
+    width: 225px;
+    padding-top:30px;
+    padding-right:250px;
+}*/
+.alaram-chart-header {
+  margin-top: 1.6%;
+  width: 100%;
+  height: 30px;
+  //border-radius: 0px 25px 0px 0px;
+  text-align: center;
+  color: #f0f0f0;
+  background: #2980b9;
+}
+
+.alarm-table-container {
+  margin-left: -2%;
+  width: 80%;
+
+  /*
+  border-top: 2px dashed #046ca3;
+  border-bottom: 1px dashed #046ca3;
+        box-shadow: inset 0 -1px 0 0 #046ca3, inset 0 1px 0 0 #046ca3, 0 1px 0 0 #046ca3, 0 -1px 0 0 #046ca3;
+  margin-bottom: 1px;
+  */
+  -webkit-box-shadow: 6px 7px 12px -6px rgba(102,101,102,0.91);
+-moz-box-shadow: 6px 7px 12px -6px rgba(102,101,102,0.91);
+box-shadow: 6px 7px 12px -6px rgba(102,101,102,0.91);
+}
+
+.alaram-history-header {
+  margin-top: .5%;
+  width: 100%;
+  height: 25px;
+  //border-radius: 0px 25px 0px 0px;
+  text-align: center;
+  color: #f0f0f0;
+  background: #2980b9;
+}
+
+.alaram-assigned-header {
+  margin-top: .6%;
+  width: 100%;
+  height: 25px;
+  text-align: center;
+  color:#f0f0f0;
+  background: #2980b9;
+}
+.alarm-table {
+    width: 100%;
+    overflow-y: scroll;
+    display:block;
+    height: 90%;
+    background: #e6f2ff;
+    //box-shadow: 10px 10px 5px #888888;
+    width: 100%;
+    margin: -16px 0px 0px 0px;
+    padding: 0px; 
+    table-layout: auto;
+    border-collapse: collapse;       
+}
+
+
+.alarm-th {
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.alarm-tbody {
+	//margin-left: 15px;
+	width: 100%;
+  height: 420px;
+  overflow-y: auto;
+}
+
+.alarm-thead {
+	width: 100%;	
+}
+
+.alarm-td {
+	text-align: center;
+}
+
+.alarm-chart-container {
+  height: 90%;
+  margin-top: -2%;
+   margin-left: 2%;
+   padding-left: 10%;
+  width: 98%;
+  background: #e6f2ff;
+}
+
+.alarm-chart-overviewinner {
+  padding-top: 5%;
+  height:85%;
+  width: 85%;
+}
+
+.alarm-chart-severityinner {
+  padding-top: 5%;
+  height:85%;
+  width: 85%;
+}
+
+.table-history-component {
+  height:90%;
+  width: 100%;
+  background: #e6f2ff;
+}
+
+.table-assigned-component {
+  height:90%;
+  width: 100%;
+  background: #e6f2ff;
+}
+
+
+
+.table-component-th {
+  background: #96c7e8; 
+  color: black; 
+}
+.table-component-th { 
+  padding: 6px 0px!important;
+  border: 1px solid #ccc;
+  font-size: 11px;
+  min-width: 85px;
+}
+.table-component-td{
+  padding: 6px; 
+  border: 1px solid #ccc; 
+  font-size: 12px;
+  text-align: center;
+}
+
+.alarm-user-icon {
+  margin-left: 10px;
+	width: 20px;
+	height: 20px;
+}
+.alarm-table-text { 
+  text-align: center;
+}
+
+.alarm-modal-header {
+  margin-bottom: 3%;
+}
+
+.alarm-modal-btn {
+  margin: 15px 0px 0px 440px;
+}
+
+.alarm-modal-button {
+
+  width:150px;
+  display:inline-block;
+  overflow: auto;
+  white-space: nowrap;
+  margin:0px auto;
+  //border:1px red solid;
+
+  margin-top: 20px;;
+}
+
+.alarm-extra-width {
+  max-height: 100px;
+    overflow: auto;
+    overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.dropdown-item {
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.dropdown {
+  cursor: pointer;
+}
+
+

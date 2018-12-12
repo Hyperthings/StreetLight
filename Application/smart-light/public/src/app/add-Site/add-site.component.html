@@ -1,0 +1,112 @@
+<h5 class="add-site-header"><span class="add-site-text">Configure New Site</span>
+	<img class="livedata-back-button" title="back" src="../../images/back-button.png" routerLink="/site">
+</h5>
+<div class="add-site">
+	<form novalidate (ngSubmit)="onSubmit(user)" [formGroup]="user">
+		<div class="col-lg-5 col-md-5">
+	      <label>
+	      	<span class="label label-primary">Site Name</span>
+	        <input class="add-site-inputs" type="text" placeholder="Site" formControlName="siteName" [(ngModel)]="site" (keyup)="checkSiteNameAvailability($event.target.value)">
+	      </label>
+	      <div class="error" *ngIf="user.get('siteName').touched && user.get('siteName').hasError('required')">
+	        Site Name is required
+	      </div>
+	      <div class="error" *ngIf="user.get('siteName').touched && user.get('siteName').hasError('minlength')">
+	        Minimum of 2 characters
+	      </div>
+	      <div class="error" *ngIf="showSiteNameAvailableError">
+	        Site Name already existing.
+	      </div>
+	      <label>
+	      	<span class="label label-primary">Solution Name</span>
+	      	<input class="add-site-inputs" type="text" placeholder="Solution" formControlName="solution" [attr.disabled]='true'>
+
+	       <!--<select class="add-site-inputs" placeholder="Solution" formControlName="solution" [attr.disabled]='true'>
+	       	<option value="" disabled selected>Please Select Solution</option>
+	        <option>EMS</option> 
+	        <option>Solar</option>
+	        <option>Fleet Tracking</option>
+	        <option>Telecom</option>
+	        <option>CMS</option>
+	        <option>People Tracking</option>
+	        <option>Waste Management</option>
+	        <option>Warehouse Management</option> 
+	      </select>-->
+	      </label>
+	      <div class="error" *ngIf="user.get('solution').touched && user.get('solution').hasError('required')">
+	        Solution Name is required
+	      </div>
+	      
+	      <label>
+	      	<span class="label label-primary">Latitude</span>
+	        <input class="add-site-inputs" type="number" placeholder="Latitude" formControlName="latitude" [(ngModel)]="latitude">
+	      </label>
+	      <div class="error" *ngIf="user.get('latitude').touched && user.get('latitude').hasError('required')">
+	        Latitude is required
+	      </div>
+	      <label>
+	      	<span class="label label-primary">Longitude</span>
+	        <input class="add-site-inputs" type="number" placeholder="Longitude" formControlName="longitude" [(ngModel)]="longitude">
+	      </label>
+	      <div class="error" *ngIf="user.get('longitude').touched && user.get('longitude').hasError('required')">
+	        Longitude is required
+	      </div>
+	    </div>
+
+	    <div class="col-lg-5 col-md-5">
+	      <!-- <label>
+	        <input class="add-site-inputs" type="text" placeholder="Site Name" formControlName="siteName" [(ngModel)]="siteName">
+	      </label>
+	      <div class="error" *ngIf="user.get('siteName').touched && user.get('siteName').hasError('required')">
+	        Site Name is required
+	      </div> -->
+	      <label>
+	      	<span class="label label-primary">Site Id</span>
+	        <input class="add-site-inputs" type="text" placeholder="Site Id" formControlName="siteId" [(ngModel)]="siteId" (keyup)="checkSiteIdAvailability($event.target.value)">
+	      </label>
+	      <div class="error" *ngIf="user.get('siteId').touched && user.get('siteId').hasError('required')">
+	        Site Id is required
+	      </div>
+	      <div class="error" *ngIf="showSiteIdAvailableError">
+	        Site Id already existing.
+	      </div>
+	       <label>
+	      	<span class="label label-primary">Address</span>
+	        <textarea class="add-site-textarea" rows="4" cols="50" placeholder="Address" formControlName="address" [(ngModel)]="address">
+			</textarea>
+	      </label>
+	      <div class="error" *ngIf="user.get('address').touched && user.get('address').hasError('required')">
+	        Address is required
+	      </div>
+	    </div>
+
+	     <div class="device-invalid-alert" [@movePanel]='state' *ngIf="user.invalid && showInvalidAlert">
+          Please fill all the fields.
+        </div>
+	    <div class="col-lg-4 col-md-4 add-site-button">
+	    	<button type="submit"  [disabled]="showSiteIdAvailableError || showSiteNameAvailableError">Add Site</button>
+	    	<button type="button" [routerLink]="['/site']">Cancel</button>
+	    </div>
+	      
+	    </form>
+
+	   
+    </div>
+
+    <!-- [disabled]="user.invalid" -->
+
+
+
+<button id="openModalButton" [hidden]="true" data-toggle="modal" data-target="#myModal">Open Modal</button>
+<div class="modal fade" id="myModal" role="dialog">
+  	<div class="modal-dialog modal-sm">
+        <div class="modal-content common-popup-content">
+            <div class="modal-body">
+                <p> {{popupStatusMessage}} </p>
+            </div>
+            <div class="modal-footer common-popup-footer">
+                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal" [routerLink]="['/site']">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

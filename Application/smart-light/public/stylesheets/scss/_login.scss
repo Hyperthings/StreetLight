@@ -1,0 +1,84 @@
+.logo-container{
+    height: 80px;
+    margin: -50px 0px 0px 60px;
+   
+
+    .logo{
+
+        height: 80px;
+        width: 200px;
+        background: url("../../images/EVOLUTE-LOGO-CLEAR-BG.png") 0 0 no-repeat;
+        background-size: 200px;
+        margin-left: 100px;
+     }
+}
+
+ .login-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+   width: 100%; 
+   color: #373a3c;
+
+   
+    background: url("../../images/login-background1.png") 0 0 no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    z-index: 1000;
+    padding-top: 5%;
+
+    .login-inner-container{
+        //opacity: 0.75;
+        margin: 30px 0px 0px 100px;
+        padding: 10px 25px 5px 25px;
+        background: rgba(255,255,255,0.15);
+        @include rounded-corner(5,5,5,5);
+        @include box-shadow(0 0px 15px 1px , rgba(230, 255, 238,0.75));
+    }
+
+    button{
+       
+         background: $dark-bg-color; 
+         border: none;
+        margin-top: 10px;
+
+        &:hover, &:active, &:focus {
+        background: #6fa2b3;
+        border: none;
+        }
+    }
+
+    input{
+        margin-top: 25px;
+    }
+
+    
+ }
+
+ .login-header {
+    text-align: center;
+ }
+ 
+ .login-invalid-lert {
+    margin-top: 20px;
+    padding: 5px;
+    //padding-left: 70px;
+    background: #FFE7E7;
+    color: #DC0000;
+    font-weight: 600;
+    text-align: center;
+    border: 2px solid #ff0000;
+    border-radius: 5px;
+}
+
+ .centered-column{
+     float: none;
+    margin: 0 auto;
+ }
+
+ .login-checkbox {
+    padding-top: -20px;
+ }

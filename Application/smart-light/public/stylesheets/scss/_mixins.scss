@@ -1,0 +1,25 @@
+@mixin box-shadow($values:0px 2px 5px 0px, $color:rgba(0,0,0,0.75)) {
+	-webkit-box-shadow: $values $color;
+-moz-box-shadow: $values $color;
+box-shadow: $values $color;
+}
+
+@mixin rounded-corner($top-left:3,$top-right:3,$bottom-left:3,$bottom-right:3){
+	-webkit-border-top-left-radius: $top-left+px;
+-webkit-border-top-right-radius: $top-right+px;
+-webkit-border-bottom-right-radius: $bottom-right+px;
+-webkit-border-bottom-left-radius: $bottom-left+px;
+-moz-border-radius-topleft: $top-left+px;
+-moz-border-radius-topright: $top-right+px;
+-moz-border-radius-bottomright: $bottom-right+px;
+-moz-border-radius-bottomleft: $bottom-left+px;
+border-top-left-radius: $top-left+px;
+border-top-right-radius: $top-right+px;
+border-bottom-right-radius: $bottom-right+px;
+border-bottom-left-radius: $bottom-left+px;
+}
+
+@mixin background-opacity($color, $opacity: 0.3) {
+    background: $color; /* The Fallback */
+    background: rgba($color, $opacity);
+}

@@ -1,0 +1,117 @@
+.col-8-custom {
+    width: 12.5%;
+}
+
+.bottom-nav-container {
+    @extend .full-width;
+
+    height: 50px;
+    overflow-x: auto;
+    margin-left: -0.95%;
+    position: fixed;
+    bottom: 0;
+
+    @include background-opacity(#ffffff, 0.4);
+
+    @include box-shadow(1px 0px 3px 0px, rgba(0, 0, 0, 0.75));
+
+    transition: height 0.5s ease-out;
+    -webkit-transition: height 0.5s ease-out;
+
+    &.nav-maximized {
+        margin-left: -2.2%;
+    }
+
+    &:hover {
+        height: 110px;
+
+        .bottom-navigation-item .text {
+            display: block;
+            width: 50%;
+            text-align: center;
+            color: #2980b9;
+        }
+    }
+
+    .bottom-navigation-item {
+        /* @extend .col-xl-1;
+        @extend .col-lg-1;
+        @extend .col-md-1;
+        @extend .col-sm-3;
+        @extend .col-xs-3; */
+        float: left;
+        width: 12.5%;
+        min-width: 55px;
+        padding-left: 5%;
+        height: 100%;
+        cursor: pointer;
+
+        .text {
+            display: none;
+        }
+
+        padding-left: 20px;
+
+        &:hover {
+            .icon {
+                transform: scale(1.15);
+                border-radius: 50%;
+
+                @include box-shadow(0px 0px 10px 1px, $dark-bg-color);
+
+                color: $dark-bg-color;
+            }
+
+            .text{
+                font-size: 115%;
+            }
+        }
+
+        .icon {
+            height: 40px;
+            width: 40px;
+            margin-top: 5px;
+            margin-left: 15%;
+
+            &.happiness-index {
+                background: url("../../images/city_happiness.png") 0 0 no-repeat;
+                background-size: 40px;
+            }
+
+            &.population-index {
+                background: url("../../images/population.png") 0 0 no-repeat;
+                background-size: 40px;
+            }
+
+            &.environmental-index {
+                background: url("../../images/environmental.png") 0 0 no-repeat;
+                background-size: 40px;
+            }
+
+            &.education-index {
+                background: url("../../images/educating.png") 0 0 no-repeat;
+                background-size: 40px;
+            }
+
+            &.economy-index {
+                background: url("../../images/finance.png") 0 0 no-repeat;
+                background-size: 40px;
+            }
+
+            &.health-index {
+                background: url("../../images/health.png") 0 0 no-repeat;
+                background-size: 40px;
+            }
+
+            &.energy-index {
+                background: url("../../images/energy.png") 0 0 no-repeat;
+                background-size: 40px;
+            }
+
+            &.mobile-index {
+                background: url("../../images/mobile.png") 0 0 no-repeat;
+                background-size: 40px;
+            }
+        }
+    }
+}
